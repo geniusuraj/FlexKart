@@ -1,0 +1,14 @@
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0bmFtZSI6IkFkIiwibGFzdG5hbWUiOiJNaW5pc3RlciIsImVtYWlsIjoiYWRAbWluLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGxMbTVMcDQwdUJSOUNVclpuNThDZE9sOHl1NUdwMnVtQU8uNmx5LnZXY1owYTB2VUtzSGlDIiwiYXZhdGFyIjoiaHR0cHM6Ly9jbG91ZGZsYXJlLWlwZnMuY29tL2lwZnMvUW1kM1c1RHVoZ0hpckxIR1ZpeGk2Vjc2TGhDa1pVejZwbkZ0NUFKQml5dkh5ZS9hdmF0YXIvNzYyLmpwZyIsInVzZXJMZXZlbCI6NCwiY3JlYXRlZEF0IjoxNjcwMTY1OTgwNjM4LCJpYXQiOjE2NzYxMTU0MjksImV4cCI6MTY3NjEyNjIyOX0.eIKAjWl0dLIDXRKIqO1fDJuoGs51yf_Tolk7jkIC2zQ",
+  "user": {
+      "id": 1,
+      "username": "admin",
+      "firstname": "Ad",
+      "lastname": "Minister",
+      "email": "ad@min.com",
+      "password": "$2b$10$lLm5Lp40uBR9CUrZn58CdOl8yu5Gp2umAO.6ly.vWcZ0a0vUKsHiC",
+      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/762.jpg",
+      "userLevel": 4,
+      "createdAt": 1670165980638
+  }
+}
