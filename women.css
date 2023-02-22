@@ -1,0 +1,87 @@
+
+body{
+    margin:0px;
+    padding:0px;
+    font-family: Roboto,Arial,sans-serif;
+}
+
+#WomenMain{
+    display:flex;
+    width:90%;
+    margin: auto;
+    margin-top:20px;
+    
+}
+.Belk{
+    margin-left:8%;
+}
+.Women1{
+    width:15%
+}
+.Women2{
+   
+    width:82%;
+    
+}
+.image{
+    
+    width:98%;
+    margin: auto;
+    height:500px;
+}
+.belkIMG{
+    width:100%;
+    height:500px;
+}
+.first{
+    font-size:16px;
+    font-weight: bold;
+}
+p{
+    font-size:13px;
+}
+.shopTops{
+ 
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  width:98%;
+  margin: auto;
+  margin-top:20px;
+}
+.shopTops div{
+  
+    width:80%;
+    margin: auto;
+    height:400px;
+    margin-top:40px;
+   
+}
+img{
+    width:100%;
+    height:400px;
+}
+
+.style{
+    
+    width:100%;
+    margin-top:40px;
+    height:200px;
+}
+.style img{
+    width:100%;
+    height:200px;
+}
+
+.style2{
+    
+    width:100%;
+    margin-top:40px;
+    height:400px;
+}
+.style2 img{
+    width:100%;
+    height:400px;
+}
+
+
+
