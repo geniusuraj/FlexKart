@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RD-Login/Sign</title>
+    <style>
+
+        /* ************************************************LOGIN********************************************** */
+     
+        #container{
+           
+            display: flex;
+           height: 1000px;
+           justify-content: center;
+           align-items: center;
+           
+        }
+        .boxkg{
+          
+           background-color: white;
+            padding-left: 20px;
+            margin-right: 50px;
+            height: 300px;
+            width: 38%;
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            border-radius: 10px;
+            color: black;
+        }
+        form{
+            
+            padding: 10px;
+            height: 90%;
+            font-size: 20px;
+            
+        }
+        #email{
+            padding: 10px;
+            
+        }
+        #cont{
+            
+            background: #0076be;
+            color: white;
+            padding: 8px 162px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-color: white;
+            font-size: 16px;
+        }
+
+        .p1{
+            display: inline-block;
+            position: absolute;
+            bottom: 25px;
+            left: 80px;
+            color: black;
+            font-weight: bold;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+a {
+text-decoration: none;
+color: white;
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <!-- ************************************************LOGIN******************************************* -->
+
+       </div> 
+    <div id="container">
+        
+        <div class="boxkg"> 
+            <div>
+            <h2>My Account</h2>
+            </div>
+            <div >
+                <form>
+                    <input id="email" type="email"name = "email" size="50"
+                    placeholder="Email" aria-required="false" border-radius="5px" height="50px"/>
+                    <input type="submit" value="Sign In" id="cont" size="60" />
+                </form>
+                <h3 class="p1">
+                    <a href="register.html"><span class="reg" ></span>
+                        <input type="submit" value="Create Account" id="cont" size="60" />
+                    </h3>
+            </div>
+        </div> 
+    </div>  
+        
+</body>
+</html>
+<!-- *************************************************JS************************************************** -->
+
+<script>
+    document.querySelector("form").addEventListener("submit",myFunction)
+function myFunction(){
+    event.preventDefault();
+    var logArr = JSON.parse(localStorage.getItem("allUsers")) || []
+var userEmail=document.querySelector("#email").value;
+for(let i=0;i<logArr.length;i++){
+    var email=logArr[i].email
+    if(email==userEmail){
+        window.location.href="index.html"
+        return;
+    }
+}
+alert("Your Account is NOT Register!!");
+}
+</script>
