@@ -9,7 +9,28 @@
 <body>
     
     <div class="container">
+        <h1>Admin</h1>
+        <input type="text" id="name">
+        <input type="password" name="" id="pass">
+        <button id="signup">check</button>
         
     </div>
 </body>
+<script>
+    let url="https://63f63abd59c944921f6ff45a.mockapi.io/flexcart"
+    document.querySelector("#signup").addEventListener("click",()=>{
+    async function signupData()
+    {
+        try {
+        let res=await fetch(url)
+        res=await res.json();
+        console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    signupData();
+    })
+    
+</script>
 </html>
