@@ -5,32 +5,154 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #container>div:nth-child(1){
+            display: flex;
+            height: 30px;
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #container>div:nth-child(1)>span{
+            text-align: center;
+            width: 25%;
+            box-shadow: 0 0 4px gray;
+            cursor: pointer;
+        }#container>div:nth-child(1)>span:hover{
+            background-color: gray;
+        }
+        
+        tbody td img{
+            width: 200px;
+        }
+        tbody td h4{
+            margin: 0px;
+        }
+        tbody td h3{
+            margin:  0;
+        }
+        table{
+            background: rgb(252, 250, 250);
+            border-spacing: 10px;
+        }
+        tbody tr{
+            box-shadow: 0px 0px 4px rgb(165, 164, 164);
+            /* margin-bottom: 10px; */
+        }
+        tbody td{
+            padding: 5px;
+        }
+        tbody td:nth-child(2){
+            
+            display: flex;
+            flex-direction: column;
+        }
+        tbody td p{
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        .remove{
+            display: block;
+            margin-left: 40px;
+            font-size: 20px;
+            padding: 3px 20px;
+            width: fit-content;
+            background-color: rgb(0, 217, 255);
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     
-    <div class="container">
-        <h1>Admin</h1>
-        <input type="text" id="name">
-        <input type="password" name="" id="pass">
-        <button id="signup">check</button>
-        
+    <div id="container">
+        <div><span id="product">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span id="ourTeam">OUR TEAM</span></div>
+        <div id="maincontainer">
+            <table>
+                <thead></thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
 </body>
 <script>
-    let url="https://63f63abd59c944921f6ff45a.mockapi.io/flexcart"
-    document.querySelector("#signup").addEventListener("click",()=>{
-    async function signupData()
+    let container=document.querySelector("#maincontainer")
+    let url='https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/'
+    async function fetchData(data="product")
     {
         try {
-        let res=await fetch(url)
-        res=await res.json();
-        console.log(res)
+            let res=await fetch(`${url+data}`)
+            res=await res.json();
+            switch(data)
+            {
+                case "product":res=res.product;
+                break;
+                case "users":res=res.users;
+                break;
+                case "employees":res=res.employees;
+                break;
+            }if(data=="product")
+            displayProduct(res);
+            else if(data=="users")
+            displayUsers(res)
         } catch (error) {
             console.log(error)
         }
     }
-    signupData();
-    })
-    
+    fetchData();
+    let data=document.querySelectorAll("span")
+    data.forEach(el => {
+        el.addEventListener("click",()=>{
+            fetchData(el.id)
+        })
+    });
+    function displayProduct(arr)
+    {
+        let thead=document.querySelector("thead");
+        let tbody=document.querySelector("tbody");
+        thead.innerHTML="";
+        tbody.innerHTML=""
+        let tr=document.createElement("tr")
+        let th1=document.createElement("th")
+        let th2=document.createElement("th")
+        tr.append(th1,th2)
+        th1.innerText="Image"
+        th2.innerText="Discription"
+        thead.append(tr)
+        arr.forEach(el => {
+            let tr=document.createElement("tr")
+            let td1=document.createElement("td")
+            let image=document.createElement("img")
+            let td2=document.createElement("td")
+            let title=document.createElement("p")
+            let brand=document.createElement("p")
+            let type=document.createElement("p")
+            let searchKey=document.createElement("p");
+            let desc=document.createElement("p");
+            let price=document.createElement("p")
+            let button=document.createElement("button")
+            image.src=el.src;
+            title.innerText=el.title;
+            brand.innerHTML=`<b>${el.brand}</b>`
+            type.innerHTML=`For :- <b>${el.type}</b>`;
+            searchKey.innerText=`Search Key :- ${el.check}`;
+            desc.innerText=`Discription :- ${el.discription}`;
+            price.innerHTML=`Price :- <b>${el.price}</b>`;
+            button.innerText="Remove"
+            button.setAttribute("class","remove")
+            td1.append(image)
+            td2.append(title,brand,desc,type,price,searchKey,button)
+            tr.append(td1,td2)
+            tbody.append(tr)
+
+        });
+    }
+    function displayUsers(res){
+        
+    }
+
 </script>
 </html>
