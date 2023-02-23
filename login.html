@@ -12,39 +12,35 @@
         #container{
            
             display: flex;
-           height: 1000px;
            justify-content: center;
            align-items: center;
-           
+           border: 5px solid red;
         }
         .boxkg{
-          
+            border: 5px solid green;
            background-color: white;
-            padding-left: 20px;
-            margin-right: 50px;
-            height: 300px;
-            width: 38%;
+            height: 450px;
+            width: 29%;
             position: relative;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
             border-radius: 10px;
             color: black;
         }
         form{
             
             padding: 10px;
-            height: 90%;
             font-size: 20px;
             
         }
         #email{
-            padding: 10px;
             
+            padding: 8px 26px;
+            border-radius: 10px;
         }
         #cont{
             
             background: #0076be;
             color: white;
-            padding: 8px 162px;
+            padding: 8px 192px;
             border-radius: 8px;
             margin-top: 10px;
             border-color: white;
@@ -71,9 +67,21 @@ text-decoration: none;
 color: white;
 }
 
+#co{
+    margin-left: -70px;
+    background: #0076be;
+            color: white;
+            padding: 8px 162px;
+            border-radius: 10px;
+            border-color: white;
+            font-size: 16px;
+}
 
-
-
+.kk{
+    border: 5px solid red;
+    height: 200px;
+    width: 100%;
+}
 
     </style>
 </head>
@@ -95,9 +103,12 @@ color: white;
                     placeholder="Email" aria-required="false" border-radius="5px" height="50px"/>
                     <input type="submit" value="Sign In" id="cont" size="60" />
                 </form>
+                <div class="kk">
+
+                </div>
                 <h3 class="p1">
                     <a href="register.html"><span class="reg" ></span>
-                        <input type="submit" value="Create Account" id="cont" size="60" />
+                    <input type="submit" value="Create Account" id="co" size="60" />
                     </h3>
             </div>
         </div> 
