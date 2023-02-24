@@ -1,189 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet" />
     <title>FlexKart</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <!-- HEAD-NAV-BAR-START -->
-    <header class="header">
-        <div class="header1">
-            <div class="header2">
-               <div class="header3">
-                   <div class="header4">
-                    <a href=""><img src="./images/FlexKart.svg" alt="" class="logo"></a>
-                    <div class="header5">
-                        <div class="headerSection">
-                            <a href=""> <img src="./images/rewards.svg" alt="" class="reward"></a>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
 
-                            <a href=""> <img src="./images/coupons.svg" alt="" class="coupons"></a>
+.nav-parent {
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0px;
+}
 
-                            <a href=""> <img src="./images/acount.svg" alt="" class="div"></a>
+nav {
+  display: flex;
+  max-width: 1260px;
+  width: 100%;
+}
+nav .brand-logo {
+  width: 50px;
+}
+nav .header-buttons {
+  display: flex;
+  column-gap: 1.5rem;
+  justify-content: center;
+  white-space: nowrap;
+}
 
-                            <a href=""> <img src="./images/bag.svg" alt="" class="cart"></a>
-                        </div>
+nav .search-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 45px;
+  position: relative;
+  margin-right: 15px;
+}
 
-                        <div class="search-input">
-                           <input type="text" placeholder="What can we help you find?" class="placeholder">
-                           <img src="./images/search-1.svg" alt="" class="search-img"> 
-                        </div>
-                    </div>
-                   </div>
-               </div> 
-            </div>
+nav .search-div input {
+  padding: 0px 15px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px #767676 solid;
+  border-right: none;
+  flex: 1;
+  outline: none;
+  height: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: #fefefe;
+  width: 100%;
+}
+nav .search-div button {
+  background-color: #fefefe;
+  border: 1px #767676 solid;
+  height: 46.5px;
+  padding: 0px 20px;
+  margin-right: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  border-left: none;
+}
+nav .search-div button:hover {
+  background-color: #f5f5f5;
+}
+
+.divider {
+  position: absolute;
+  background: #767676;
+  right: -8px;
+  top: 12%;
+  width: 1px;
+  height: 70%;
+}
+
+nav .header-buttons > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+nav .header-buttons > div:hover:after {
+  content: '';
+  position: absolute;
+  height: 1.4px;
+  background: black;
+  top: 53px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+nav .header-buttons .divider {
+  width: 0.5px;
+}
+
+nav #reward-dropdown {
+  position: absolute;
+  top: 54px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: center;
+  width: 11rem;
+  white-space: nowrap;
+  row-gap: 0.4rem;
+  background-color: #fefefe;
+  padding: 18px;
+  border: 1px black solid;
+  opacity: 0;
+}
+nav #reward-dropdown a {
+  padding: 9px;
+}
+
+nav #reward-dropdown a:hover {
+  background-color: #f5f5f5;
+}
+
+nav #my-account-dropdown {
+  position: absolute;
+  top: 54px;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 12rem;
+  padding: 15px;
+  border: 1px black solid;
+  opacity: 0;
+}
+nav #my-account-dropdown button {
+  background-color: #0076be;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  outline: 1.5px #0076be solid;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+nav #my-account-dropdown button:nth-child(2) {
+  background-color: inherit;
+  color: #0076be;
+  padding: 9px;
+  border: 2px transparent solid;
+}
+nav #my-account-dropdown button:nth-child(2):hover {
+  background-color: inherit;
+  border: 2px #0076be solid;
+}
+nav #my-account-dropdown a {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding: 12px 5px;
+}
+nav #my-account-dropdown a:hover {
+  background-color: #f5f5f5;
+}
+/* .cat-parent {
+} */
+
+.cat-parent {
+  background-color: #fefefe;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.shopping-category {
+  align-self: flex-start;
+  max-width: 1070px;
+  width: 100%;
+  display: flex;
+}
+.shopping-category ul {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  margin-left: 9%;
+  column-gap: 15px;
+  font-size: 14px;
+  /* background-color: red; */
+}
+
+.shopping-category > ul > li > a {
+  color: black;
+}
+.shopping-category > ul > li:last-child > a {
+  color: #ce0e2d;
+}
+.shopping-category > ul > li {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.shopping-category > ul > li > a:hover:after {
+  content: '';
+  position: absolute;
+  top: 29px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: black;
+}
+/* .shopping-category > ul > li:hover .mega-menu-div {
+  display: flex;
+} */
+.mega-menu-div {
+  position: absolute;
+  top: 33px;
+  width: 1200px;
+  height: 600px;
+  background-color: #fefefe;
+  /* display: flex; */
+  padding: 20px;
+  display: none;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mega-menu-div a {
+  padding: 8px 10px;
+  position: relative;
+}
+
+.mega-menu-div a:hover:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 0;
+  left: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: 1px;
+  background: black;
+}
+
+.sub-mega-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.sub-mega-menu > p {
+  font-weight: 700 !important;
+  font-size: 20px;
+}
+
+.super-sub-menu {
+  display: flex;
+  margin-top: 10px;
+}
+
+.super-sub-menu > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.super-sub-menu > div > a:first-child {
+  font-weight: 700;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="nav-parent">
+      <nav>
+        <img class="brand-logo" src="./images/FlexKart.svg" />
+        <div class="search-div">
+          <input type="text" placeholder="What can we help you find?" />
+          <button><img src="./images/search.svg" alt="" /></button>
+          <div class="divider"></div>
         </div>
-        <nav class="navbar">
-            <div class="nav1">
-                <div class="nav2">
-                    <ul class="ulist">
-                        <a href="" class ="ulist1">
-                            <p>Gifts</p>
-                        </a>
-
-                        <a href="" class ="ulist2">
-                            <p>Women</p>
-                        </a>
-
-                        <a href="" class ="ulist3">
-                            <p>Men</p>
-                        </a>
-
-                        <a href="" class ="ulist4">
-                            <p>Kids</p>
-                        </a>
-
-                        <a href="" class ="ulist5">
-                            <p>Shoes</p>
-                        </a>
-
-                        <a href="" class ="ulist6">
-                            <p>Handbags</p>
-                        </a>
-
-                        <a href="" class ="ulist7">
-                            <p>Jewelry</p>
-                        </a>
-
-                        <a href="" class ="ulist8">
-                            <p>Beauty</p>
-                        </a>
-
-                        <a href="" class ="ulist9">
-                            <p>Home</p>
-                        </a>
-
-                        <a href="" class ="ulist10">
-                            <p>Bed & Bath</p>
-                        </a>
-
-                        <a href="" class ="ulist11">
-                            <p>Conn's x Belk</p>
-                        </a>
-
-                        <a href="" class ="ulist12">
-                            <p>Brands</p>
-                        </a>
-
-                        <a href="" class ="ulist13">
-                            <p>Clearance</p>
-                        </a>
-                    </ul>
-                </div>
+        <div class="header-buttons">
+          <div>
+            <div>
+              <img src="./images/reward.svg" />
+              <img src="./images/chevron-down.svg" />
             </div>
-        </nav>
-    </header>
-    <main>
-
-    </main>
-
-    <footer class="footer">
-        <div id="wrapper">
-            <div id="footer">
-                <div class="term">
-                    <p>© 2023 Belk, Inc. & Belk eCommerce LLC. All Rights Reserved.</p>
-                    <ul class="footer-bottom">
-                        <li class="fb1">
-                            <a href="">
-                              <p>Feedback</p>
-                            </a>
-                        </li>
-                        <li class="fb2">
-                            <a href="">
-                                <p>Site Map</p>
-                            </a>
-                        </li>
-                        <li class="fb3">
-                            CA Transparency in supply chain
-                        </li>
-                        <a href="" class="fb4">
-                           <p> Do Not sell or shanre my Personal information</p>
-                        </a>
-                        <li class="fb5">
-                           <a href="">
-                               <p>Accessibility Statement</p>
-                           </a> 
-                        </li>
-                        <li class="fb6">
-                            <a href="">
-                                <p>Enable Accessibility</p>
-                            </a>
-                        </li>
-                        <li class="fb7">
-                            <a href="">
-                                <p>State - Specific Privacy Notices</p>
-                            </a>
-                        </li>
-                        <li class="fb8">
-                            <a href="">
-                                <p>Privacy Policy</p>
-                            </a>
-                        </li>
-                        <a href="" class="fb9">
-                            <p>Terms of Use</p>
-                        </a>
-                    </ul>
-                </div>
-
-                <div class="email">
-                    <div class="email1">
-                        <span>
-                           <button>
-                               <span class="join">Join</span>
-                            </button>
-                            <input type="email" name="" id="" placeholder="Enter your email" class="email-alert"> 
-                            <p>Get $10 off with email sign-up! Use on top of coupons.</p>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="socail">
-                    <a href="" class="s1">
-                        <img src="./images/social/a.svg" alt="">
-                    </a>
-                    <a href="" class="s2">
-                        <img src="./images/social/a-1.svg" alt="">
-                    </a>
-                    <a href="" class="s3">
-                        <img src="./images/social/a-2.svg" alt="">
-                    </a>
-                    <a href="" class="s4">
-                        <img src="./images/social/a-3.svg" alt="">
-                    </a>
-                    <a href="" class="s5">
-                        <p>Stay Connected</p>
-                    </a>
-                </div>
-
-                <div class="foot">
-                    <div class="foot1">
-                        
-                    </div>
-                </div>
+            <div>Belk Reward+</div>
+            <div id="reward-dropdown">
+              <a href="">Manage My Account</a>
+              <a href="">Pay My Bill</a>
+              <a href="">My Reward Card Benefits</a>
+              <a href="">Apply For a New Card</a>
             </div>
+          </div>
+          <div>
+            <img src="./images/coupon.svg" />
+            <div>Coupons</div>
+          </div>
+          <div>
+            <img src="./images/my-account.svg" />
+            <div>My Account</div>
+            <div class="divider"></div>
+            <div id="my-account-dropdown">
+              <button>Sign In</button>
+              <button>Create Account</button>
+              <a href=""
+                ><img src="./images/check.svg" alt="" />Find My Order</a
+              >
+              <a href=""><img src="./images/check.svg" alt="" />Reward +</a>
+              <a href=""
+                ><img src="./images/check.svg" alt="" />Find a Wish List</a
+              >
+              <a href=""
+                ><img src="./images/check.svg" alt="" />Find a Registry</a
+              >
+            </div>
+          </div>
+          <div>
+            <img src="./images/logo.svg" />
+            <div>Bag</div>
+          </div>
         </div>
-    </footer>
-</body>
+      </nav>
+    </div>
+    <div class="cat-parent">
+      <div class="shopping-category">
+        <ul>
+          <li>
+            <a class="mega-menu-link" href="">Gifts</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Gifts</p>
+                <a href="">Beauty Gifts</a>
+                <a href="">Cozy Shop</a>
+                <a href="">Designer Handbags</a>
+                <a href="">Eco Friendly</a>
+                <a href="">Fine Jewelary</a>
+                <a href="">For the Trend Setter</a>
+                <a href="">Gift Cards</a>
+                <a href="">Gifts with a purpose</a>
+                <a href="">Intimates</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">All Gifts</a>
+                  <a href="">Gifts for Her</a>
+                  <a href="">Gifts for Him</a>
+                  <a href="">Gifts for Kids</a>
+                  <a href="">Gifts for the Home</a>
+                  <a href="">Gifts for Pets</a>
+                  <a href="">Gift Cards</a> <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Just for Kids</a>
+                  <a href="">Active Gear</a>
+                  <a href="">Kids Fan Gear</a>
+                  <a href="">Toyz & Games</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Gifts by Price</a>
+                  <a href="">Under $10</a>
+                  <a href="">Under $25</a>
+                  <a href="">Under $50</a>
+                  <a href="">Under $100</a>
+                  <a href="">Over $100</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Brahmin</a>
+                  <a href="">Estee Lauder</a>
+                  <a href="">Free People</a>
+                  <a href="">Michael Kors</a>
+                  <a href="">Ralph Lauren</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Gifts by Recipient</a>
+                  <a href="">For the Foodie</a>
+                  <a href="">For the Hostess</a>
+                  <a href="">For the Outdoorsman</a>
+                  <a href="">For the Sports Fan</a>
+                  <a href="">For the Techie</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="">Women</a></li>
+          <li><a href="">Men</a></li>
+          <li><a href="">Kids</a></li>
+          <li><a href="">Shoes</a></li>
+          <li><a href="">Handbags</a></li>
+          <li><a href="">Jewelry</a></li>
+          <li><a href="">Beauty</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Bed & Bath</a></li>
+          <li><a href="">Conn's x Belk</a></li>
+          <li><a href="">Brands</a></li>
+          <li><a href="">Clearance</a></li>
+        </ul>
+      </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
