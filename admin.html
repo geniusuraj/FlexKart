@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #container>div:nth-child(1){
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container-nav>div:nth-child(1){
             display: flex;
             height: 30px;
             font-size: 20px;
@@ -15,86 +19,86 @@
             justify-content: space-around;
             align-items: center;
         }
-        #container>div:nth-child(1)>span{
+        #container-nav>div:nth-child(1)>span{
             text-align: center;
             width: 25%;
             box-shadow: 0 0 4px gray;
             cursor: pointer;
-        }#container>div:nth-child(1)>span:hover{
+        }#container-nav>div:nth-child(1)>span:hover{
             background-color: gray;
         }
-        
-        tbody td img{
-            width: 200px;
-        }
-        tbody td h4{
-            margin: 0px;
-        }
-        tbody td h3{
-            margin:  0;
-        }
-        table{
-            background: rgb(252, 250, 250);
-            border-spacing: 10px;
-        }
-        tbody tr{
+        #container>div{
+            display: flex;
+            max-width: 1300px;
+            margin: 20px auto 20px;
             box-shadow: 0px 0px 4px rgb(165, 164, 164);
-            /* margin-bottom: 10px; */
+            border-radius: 10px;
         }
-        tbody td{
-            padding: 5px;
+        #container>div div{
+            padding: 10px;
         }
-        tbody td:nth-child(2){
-            
+        #container>div:hover{
+            background-color: white;
+        }
+        #container img{
+            max-width: 100%;
+        }
+        
+        #container{
+            background: rgb(252, 250, 250);
+        }
+        #container>div div:nth-child(1){
+            width: 20%;
+        }
+        #container>div div:nth-child(2){
+            width: 75%;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
-        tbody td p{
+        #container>div p{
             margin-top: 10px;
             margin-bottom: 5px;
-        }
+        } 
         .remove{
             display: block;
             margin-left: 40px;
             font-size: 20px;
             padding: 3px 20px;
             width: fit-content;
-            background-color: rgb(0, 217, 255);
+            background-color: rgba(204, 3, 3, 0.815);
             border: none;
             border-radius: 10px;
             color: white;
         }
+        .displayGrid{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 20px 50px 20px;
+        }
+
     </style>
 </head>
 <body>
     
-    <div id="container">
-        <div><span id="product">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span id="ourTeam">OUR TEAM</span></div>
+    <div id="container-nav">
+        <div><span id="products">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span id="ourTeam">OUR TEAM</span></div>
         <div id="maincontainer">
-            <table>
-                <thead></thead>
-                <tbody></tbody>
-            </table>
+            <h1 id="about"></h1>
+            <div id="container"></div>
         </div>
     </div>
 </body>
 <script>
-    let container=document.querySelector("#maincontainer")
-    let url='https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/'
-    async function fetchData(data="product")
+    let container=document.querySelector("#container")
+    let url='https://63f63abd59c944921f6ff45a.mockapi.io/'
+    async function fetchData(data="products")
     {
         try {
             let res=await fetch(`${url+data}`)
             res=await res.json();
-            switch(data)
-            {
-                case "product":res=res.product;
-                break;
-                case "users":res=res.users;
-                break;
-                case "employees":res=res.employees;
-                break;
-            }if(data=="product")
+            if(data=="products")
             displayProduct(res);
             else if(data=="users")
             displayUsers(res)
@@ -111,46 +115,96 @@
     });
     function displayProduct(arr)
     {
-        let thead=document.querySelector("thead");
-        let tbody=document.querySelector("tbody");
-        thead.innerHTML="";
-        tbody.innerHTML=""
-        let tr=document.createElement("tr")
-        let th1=document.createElement("th")
-        let th2=document.createElement("th")
-        tr.append(th1,th2)
-        th1.innerText="Image"
-        th2.innerText="Discription"
-        thead.append(tr)
-        arr.forEach(el => {
-            let tr=document.createElement("tr")
-            let td1=document.createElement("td")
+        container.innerHTML=""
+        for(let i=0;i<arr.length;i++){
+            let card=document.createElement("div")
+            let div1=document.createElement("div")
             let image=document.createElement("img")
-            let td2=document.createElement("td")
-            let title=document.createElement("p")
+            let div2=document.createElement("div")
+            let title=document.createElement("h1")
             let brand=document.createElement("p")
-            let type=document.createElement("p")
             let searchKey=document.createElement("p");
+            let type=document.createElement("p")
             let desc=document.createElement("p");
             let price=document.createElement("p")
             let button=document.createElement("button")
-            image.src=el.src;
-            title.innerText=el.title;
-            brand.innerHTML=`<b>${el.brand}</b>`
-            type.innerHTML=`For :- <b>${el.type}</b>`;
-            searchKey.innerText=`Search Key :- ${el.check}`;
-            desc.innerText=`Discription :- ${el.discription}`;
-            price.innerHTML=`Price :- <b>${el.price}</b>`;
+            image.src=arr[i].src;
+            title.innerText=arr[i].title;
+            brand.innerHTML=`<b>Brannd :-  ${arr[i].brand}</b>`
+            type.innerHTML=`For :- <b>${arr[i].type}</b>`;
+            searchKey.innerText=`Search Key :- ${arr[i].check}`;
+            desc.innerHTML=`<b>Discription</b> :- ${arr[i].discription}`;
+            price.innerHTML=`Price :- <b>${arr[i].price}</b>`;
             button.innerText="Remove"
             button.setAttribute("class","remove")
-            td1.append(image)
-            td2.append(title,brand,desc,type,price,searchKey,button)
-            tr.append(td1,td2)
-            tbody.append(tr)
+            button.addEventListener("click",()=>{
+                async function DeleteProducts(){
+                    try {
+                        let res=await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/products/${arr[i].id}`,{
+                            method:'DELETE',
+                            headers:{
+                                'Content-Type':'application/json'
+                            },
+                        })
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+                DeleteProducts();
+                arr.splice(i,1)
+                displayProduct(arr);
+            })
+            div1.append(image)
+            div2.append(title,brand,desc,type,price,searchKey)
+            card.append(div1,div2,button)
+            container.appendChild(card)
 
-        });
+        }
     }
-    function displayUsers(res){
+    function displayUsers(arr){
+        console.log(arr)
+        container.innerHTML=""
+        for(let i=0;i<arr.length;i++) {
+            let card=document.createElement("div")
+            let div1=document.createElement("div")
+            let image=document.createElement("img")
+            let div2=document.createElement("div")
+            let name=document.createElement("h1")
+            let phone=document.createElement("p")
+            let gender=document.createElement("p")
+            let button=document.createElement("button")
+            if(arr[i].gender=="male")
+            image.src="images/icon_men.png";
+            else
+            image.src="images/icon_women.png"
+            name.innerText=arr[i].name;
+            phone.innerHTML=`<b>Phone :- </b>${arr[i].phone}`
+            gender.innerHTML=`<b>Gender :- </b>${arr[i].gender}`;
+            button.innerText="Remove"
+            button.setAttribute("class","remove")
+            button.addEventListener("click",()=>{
+                console.log(arr[i])
+                async function DeleteUser(){
+                    try {
+                        let res=await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/users/${arr[i].id}`,{
+                            method:'DELETE',
+                            headers:{
+                                'Content-Type':'application/json'
+                            },
+                        })
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+                DeleteUser();
+                arr.splice(i,1)
+                displayUsers(arr)
+            })
+            div1.append(image)
+            div2.append(name,phone,gender,button)
+            card.append(div1,div2)
+            container.append(card)
+        }
         
     }
 
