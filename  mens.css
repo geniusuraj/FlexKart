@@ -21,19 +21,21 @@ body{
     /* border:solid 1px rgb(19, 18, 18); */
 }
 .Women2{
-    /* border:solid 1px rgb(19, 18, 18); */
+   /* margin-left:4%; */
     width:82%;
     
 }
 .image{
-    
+  
     width:98%;
     margin: auto;
-    height:500px;
+    height:400px;
+
 }
 .belkIMG{
     width:100%;
-    height:500px;
+    height:400px;
+
 }
 .first{
     font-size:16px;
@@ -120,21 +122,6 @@ img{
    color: red;
 }
 #discription{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
- -webkit-line-clamp: 3; /* number of lines to show */
-   line-clamp: 3; 
-    -webkit-box-orient: vertical;
-    color:rgb(136, 134, 134);
-}
-#title{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
- -webkit-line-clamp: 1; /* number of lines to show */
-   line-clamp: 1; 
-    -webkit-box-orient: vertical;
     color:rgb(136, 134, 134);
 }
 
@@ -262,4 +249,22 @@ img{
 #brand:hover{
    cursor: pointer;
    text-decoration: underline;
+}
+#discription{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+-webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3; 
+   -webkit-box-orient: vertical;
+}
+
+#title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+ -webkit-line-clamp: 1; /* number of lines to show */
+   line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    color:rgb(136, 134, 134);
 }

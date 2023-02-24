@@ -19,7 +19,7 @@ fetch("https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/product")
 
 function displayProduts(data){
   data.forEach(el => {
-    if(el.type === "women"){
+    if(el.type === "men"){
        
       let card = document.createElement("div");
       card.setAttribute("id","card");
@@ -38,7 +38,7 @@ function displayProduts(data){
       brand.setAttribute("id","brand")
       brand.innerText = "API MAi NHI HAI ABhi"
 
-      let discription = document.createElement("p");
+      let discription =document.createElement("p");
       discription.setAttribute("id","discription")
       discription.innerText = el.discription
       
@@ -54,7 +54,22 @@ function displayProduts(data){
       button.innerText = "ADD TO CARD";
 
       button.addEventListener("click",()=>{
-        
+        let CartData = JSON.parse(localStorage.getItem("cart")) || []
+         
+        let flag = false
+        for(let i=0 ; i<CartData.length ; i++){
+            if(CartData[i].id === el.id){
+                flag = true;
+                break;
+            }
+        }
+        if(flag === true){
+            swal("Already in Cart!", "Add Something else!", "warning")
+        }else{
+            CartData.push(el)
+            localStorage.setItem("cart",JSON.stringify(CartData))
+            swal("Successfully Added to Cart!", "See More!", "success")
+        }
 
       })
 
