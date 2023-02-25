@@ -3,14 +3,34 @@
 let AppendSection = document.getElementById("append")
 let lastScrol = window.scrollY;
 
+
 let productData =[] ;
+let select = document.getElementById("select");
+select.addEventListener("change",()=>{
+  let filtered = productData.filter((el)=>{
+    if(el.brand === select.value && el.type == "women"){
+      return true;
+    }else if(select.value == "Brand"){
+      displayProduts(actualData.product)
+    }
+    else{
+      return false;
+    }
+  })
+  displayProduts(filtered)
+  console.log(filtered)
+})
+
 fetch("https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/product")
 .then((res)=>{
  return res.json()
 })
 .then((actualData)=>{
-   
+  
     displayProduts(actualData.product)
+    productData = actualData.product
+    console.log(actualData.product)
+    
 })
 .catch((error)=>{
     console.log(error)
@@ -18,6 +38,7 @@ fetch("https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/product")
 
 
 function displayProduts(data){
+  AppendSection.innerHTML = null;
   data.forEach(el => {
     if(el.type === "women"){
        
@@ -36,7 +57,7 @@ function displayProduts(data){
 
       let brand = document.createElement("h4");
       brand.setAttribute("id","brand")
-      brand.innerText = "API MAi NHI HAI ABhi"
+      brand.innerText = el.brand
 
       let discription = document.createElement("p");
       discription.setAttribute("id","discription")
@@ -64,5 +85,28 @@ function displayProduts(data){
     }
   });
 }
+
+let high = document.getElementById("high");
+high.addEventListener("click",()=>{
+  let highData = productData.sort((a,b)=>{
+    return (b.price - a.price)
+    
+  })
+  displayProduts(highData)
+})
+
+
+
+let low = document.getElementById("low")
+
+low.addEventListener("click",()=>{
+  let lowData = productData.sort((a,b)=>{
+    return (a.price - b.price)
+    
+  })
+  displayProduts(lowData)
+})
+
+
 
 

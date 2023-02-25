@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        form  {
+           
+            padding: 20px;
+            margin-left: -10px;
+        }
+        #container{
+            height: 620px;
+            width: 40%;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            margin: auto;
+            background-color: white;
+        }
+        .abcde{
+            height: 50px;
+            width: 100%;
+            border: 1px solid #f5f5f5;
+             font-size: 18px;
+             font-weight: 600;
+             color: black;
+             border-bottom: 1px solid rgb(221, 221, 221);
+             border-top-color: rgb(221, 221, 221);
+             border-right-color: rgb(221, 221, 221);
+             border-left-color: rgb(221, 221, 221);
+             text-align: center;
+             border-radius: 5px;
+             padding-left: 15px;
+             }
+             .abcde>h2{
+                margin-top: 5px;
+             }
+
+             .reg{
+                 padding: 8px;
+                 margin-top: 20px;
+                 margin-bottom: 10px;
+                 margin-left: 30px;
+                 margin-right: 20px;
+             }
+             .but{
+                padding: 10px 200px;
+                 margin-top: 10px;
+                 margin-bottom: 5px;
+                 background: #0076be;
+                 color: white;
+                 margin-left: 28px;
+                 text-align: center;
+                 display: flex;
+                 border-radius: 5px;
+                 border-color: #f5f5f5;
+             }
+             .e{
+                padding: 10px;
+                 margin-top: 10px;
+                 margin-bottom: 5px;
+                 background: white;
+                 color: #e42529;
+                 margin-left:30px;
+                 text-align: center;
+                 border-radius: 5px;
+                 border: none;
+                 border: 1px solid  #e42529 ;;
+             }
+
+
+
+
+    </style>
+</head>
+<body>
+       
+    <div id="container">
+        <div class="abcde">
+        <h2>Create Account</h2>
+        </div>
+    <form id="form">
+        <input class="reg" type="text" name="firstname" id="firstname" placeholder="First Name*" size="60"/> 
+        <br>
+        <input class="reg" type="text" name="lastname" id="lastname" placeholder="Last Name*" size="60"/>
+        <br>
+        <input class="reg" type="text" name="email"  id="email" placeholder="Email Address*" size="60"/>
+        <br>
+        <input class="e" type="submit" value="VERIFY EMAIL"/>
+        <br>
+        <input class="reg" type="password" name="password" id="password" placeholder="Password*" size="60"/>
+        <br>
+        <input class="reg" type="password" name="confirmpassword" id="confirm" placeholder="Confirm Password*" size="60"/>
+        <br> 
+        <input class="reg" type="text" name="mobile" id="mobile" placeholder="Mobile Number*" size="60"/>
+        <br>
+        <input  class="but" type="submit" value="REGISTER" size="100"/>
+    </form>
+    </div>
+
+    
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",myFunction)
+
+    var usersArray = JSON.parse(localStorage.getItem("allUsers")) || []
+    function myFunction(){
+        event.preventDefault();
+        var userEmail=document.querySelector("#email").value;
+        var userpassword=document.querySelector("#password").value;
+        var userConfirmPassword=document.querySelector("#confirm").value;
+        if(userpassword!==userConfirmPassword){
+            alert("WRONG PASSWORD!!")
+            return;
+        }
+
+        for(let i=0;i<usersArray.length;i++){
+            var email=usersArray[i].email
+            if(email===userEmail){
+                return alert("YOU ARE EXISTING PRECIOUS CUSTOMER")
+               
+             
+            }
+            else{
+                return   alert("PLEASE REGISTER FIRST TO SHOP")
+            }
+            
+                
+            
+
+        }
+
+        var userObj = {
+        firstname: document.querySelector("#firstname").value,
+        lastname: document.querySelector("#lastname").value,
+        email: document.querySelector("#email").value,
+        password :document.querySelector("#password").value,
+        mobile :document.querySelector("#mobile").value,
+        };
+        usersArray.push(userObj);
+        localStorage.setItem("allUsers",JSON.stringify(usersArray))
+        window.location.href="index.html"
+
+    }
+</script>
