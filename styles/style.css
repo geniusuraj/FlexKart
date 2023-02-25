@@ -136,7 +136,7 @@ nav #reward-dropdown a:hover {
   background-color: #f5f5f5;
 }
 
-nav #my-account-dropdown{
+nav #my-account-dropdown {
   position: absolute;
   top: 54px;
   background-color: #fefefe;
@@ -151,6 +151,8 @@ nav #my-account-dropdown button {
   background-color: #0076be;
   border: none;
   color: white;
+  width: 100%;
+  height: 100%;
   padding: 10px;
   font-family: inherit;
   font-weight: 500;
@@ -297,7 +299,7 @@ nav #my-account-dropdown a:hover {
 .super-sub-menu {
   display: flex;
   margin-top: 10px;
-  gap: 4rem;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-right: 10%;
 }
@@ -308,15 +310,27 @@ nav #my-account-dropdown a:hover {
   width: 200px;
 }
 
+.shopping-category > ul > li:last-child > .mega-menu-div a {
+  font-weight: 400;
+}
+.shopping-category
+  > ul
+  > li:last-child
+  > .mega-menu-div
+  > .super-sub-menu
+  > div {
+  row-gap: 1.2rem;
+}
+
 .super-sub-menu > div > a:first-child {
   font-weight: 700;
 }
-.super-sub-menu:last-child > div > a:first-child {
+/* .super-sub-menu:last-child > div > a:first-child {
   font-weight: 400;
 }
 .super-sub-menu:last-child > div {
   row-gap: 1.2rem;
-}
+} */
 
 .shop-save > p:first-child,
 .trending-brands > p:first-child,
