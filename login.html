@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RD-Login/Sign</title>
+    <title>Login/Sign</title>
     <style>
 
         /* ************************************************LOGIN********************************************** */
@@ -14,13 +14,13 @@
             display: flex;
            justify-content: center;
            align-items: center;
-           border: 5px solid red;
+           /* border: 5px solid red; */
         }
         .boxkg{
-            border: 5px solid green;
+            /* border: 5px solid green; */
            background-color: white;
-            height: 450px;
-            width: 29%;
+            height: 350px;
+            width: 470px;
             position: relative;
             border-radius: 10px;
             color: black;
@@ -31,10 +31,13 @@
             font-size: 20px;
             
         }
+        .boxkg h2{
+            padding: 8px 15px;
+        }
         #email{
             
             padding: 8px 26px;
-            border-radius: 10px;
+            border-radius: 5px;
         }
         #cont{
             
@@ -44,7 +47,7 @@
             border-radius: 8px;
             margin-top: 10px;
             border-color: white;
-            font-size: 16px;
+            
         }
 
         .p1{
@@ -62,10 +65,10 @@
             box-sizing: border-box;
             }
 
-a {
+/* a {
 text-decoration: none;
 color: white;
-}
+} */
 
 #co{
     margin-left: -70px;
@@ -78,9 +81,17 @@ color: white;
 }
 
 .kk{
-    border: 5px solid red;
-    height: 200px;
+    /* border: 5px solid red; */
+    height: 130px;
     width: 100%;
+    font-size: 18px;
+    padding: 15px;
+}
+.new{
+    /* border: 5px solid orange; */
+    width: 70%;
+    margin-left:15%;
+    margin-right: 15%;
 }
 
     </style>
@@ -104,7 +115,14 @@ color: white;
                     <input type="submit" value="Sign In" id="cont" size="60" />
                 </form>
                 <div class="kk">
-
+                    Keep me signed in - Uncheck if using a public device &nbsp;&nbsp;&nbsp;<input type="checkbox" checked="checked">
+                    <br>
+                    <br>
+                    <div class="new">
+                        <p>
+                            By signing into your account, you agree <br> to Belk's <a href="" data-tealium-listener="">Privacy Policy</a> &amp; <a href="" data-tealium-listener="">Terms of Use</a>.
+                            </p>
+                    </div>
                 </div>
                 <h3 class="p1">
                     <a href="register.html"><span class="reg" ></span>
