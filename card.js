@@ -1,19 +1,4 @@
 
-// navbar script
-
-
-// let img=document.getElementById("animation")
-
-//     setInterval(()=>{
-//         if( img.style.display=="none"){
-//             img.style.display="block"
-//             img.style.transition="0.3s"
-//         }
-//         else{
-//             img.style.display="none"
-//             img.style.transition="0.3s"
-//         }
-//     },3000)
 
 
 
