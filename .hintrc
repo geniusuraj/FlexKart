@@ -12,6 +12,7 @@
       }
     ],
     "button-type": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": "off",
+    "no-inline-styles": "off"
   }
 }
