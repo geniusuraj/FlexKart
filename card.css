@@ -1,0 +1,128 @@
+#cont{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cart{
+    width: 60%;
+    height: 500px;
+    /* border: 1px solid rgb(209, 19, 19); */
+}
+
+#price{
+    width: 37%;
+    height: 300px;
+    margin-top: 13px;
+    box-shadow: rgba(2, 85, 168, 0.2) 0px 8px 24px;
+}
+#price>div:nth-child(1){
+    border-bottom: 1px dotted rgb(201, 54, 54);
+    text-align: center;
+}
+
+#price>div:nth-child(1) h3{
+    color: black;
+}
+
+#price>div:nth-child(2){
+    display: flex;
+    justify-content: space-around;
+    text-decoration: underline;
+}
+
+#price>div:nth-child(2) h3,h4{
+    color: rgb(193, 12, 12);
+}
+#price>div:nth-child(3){
+    display: flex;
+    justify-content: space-around;
+}
+
+#price>div:nth-child(3) h3,h4{
+    color: rgb(65, 61, 61);
+}
+
+#total-price{
+    margin-left: 45px;
+}
+
+#price>div:nth-child(4){
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    border-top: 1px dotted rgb(161, 158, 158);
+}
+
+.cart-cards{
+    width: 90%;
+    padding: 10px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.plusminus{
+    /* width: 100%;
+    height: 50px; */
+    font-size: 25px;
+    text-align: center;
+    border: 28px;
+    border-radius: 10px;
+    background: rgb(243, 241, 241);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.plusminus:hover{
+    cursor: pointer;
+}
+.remove-btn{
+    background: none;
+    font-weight: bold;
+    border: none;
+    margin-left: 10px;
+}
+.remove-btn:hover{
+    color: rgb(255, 35, 35);
+    cursor: pointer;
+}
+
+.changer-div{
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:40px;
+   
+}
+#checkout{
+    color: white;
+    margin-top: 10px;
+    padding: 20px 180px;
+    background-color: skyblue;
+    border: none;
+    font-size: large;
+}
+#checkout:hover{
+    background-color: rgb(30, 161, 213);
+    cursor: pointer;
+}
+.image-div{
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+   
+}
+.image-div img{
+    width: 100%;
+}
+#discription{
+    color:gray;
+}
+#prices{
+    color:red;
+}

@@ -21,15 +21,15 @@ select.addEventListener("change",()=>{
   console.log(filtered)
 })
 
-fetch("https://63f63abd59c944921f6ff45a.mockapi.io/flexcart/product")
+fetch("https://63f63abd59c944921f6ff45a.mockapi.io/products")
 .then((res)=>{
  return res.json()
 })
 .then((actualData)=>{
   
-    displayProduts(actualData.product)
-    productData = actualData.product
-    console.log(actualData.product)
+    displayProduts(actualData)
+    productData = actualData
+    console.log(actualData)
     
 })
 .catch((error)=>{
@@ -75,7 +75,22 @@ function displayProduts(data){
       button.innerText = "ADD TO CARD";
 
       button.addEventListener("click",()=>{
-        
+        let buyarr=JSON.parse(localStorage.getItem("buy"))||[]
+         
+        let flag = false
+        for(let i=0 ; i<buyarr.length ; i++){
+            if(buyarr[i].id === el.id){
+                flag = true;
+                break;
+            }
+        }
+        if(flag === true){
+            swal("Already in Cart!", "Add Something else!", "warning")
+        }else{
+            buyarr.push(el)
+            localStorage.setItem("buy",JSON.stringify(buyarr))
+            swal("Successfully Added to Cart!", "See More!", "success")
+        }
 
       })
 
