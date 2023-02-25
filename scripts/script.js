@@ -1,36 +1,59 @@
-megaMenu = document.getElementsByClassName('mega-menu-div')[0];
-megaMenuBtn = document.querySelector('.shopping-category > ul > li > a');
-// console.log(megaMenuBtn);
-// console.log(megaMenu);
+// JavaScript code for dropdown
+const dropdownReward = document.getElementById('reward-div');
+const rewardList = document.getElementById('reward-dropdown');
+const dropdownAccount = document.getElementById('my-account-div');
+const accountOption = document.getElementById('my-account-dropdown');
+const rewChev = document.getElementById('rew-chevron');
+const accChev = document.getElementById('acc-chevron');
 
-// megaMenuBtn.addEventListener('mouseover', () => {
-//   megaMenu.style.display = 'flex';
-//   setTimeout(function () {
-//     megaMenu.style.display = 'none';
-//   }, 1000);
-// });
+dropdownReward.addEventListener('click', () => {
+  rewardList.classList.toggle('show-reward');
+  rewChev.classList.toggle('rotate180');
+  accountOption.classList.remove('show-reward');
+});
+dropdownAccount.addEventListener('click', () => {
+  accountOption.classList.toggle('show-reward');
+  rewardList.classList.remove('show-reward');
+  accChev.classList.toggle('rotate180');
+});
 
-// document.addEventListener('mouseover', (e) => {
-//   if (e.target.classList[0] === 'mega-menu-div') {
-//     setTimeout(function () {
-//       megaMenu.style.display = 'flex';
-//     }, 1000);
-//   } else {
-//     console.log(e.target.classList);
-//   }
-// });
+// JavaScript code for delaying hiding megamenu
 
-const showMegaMenu = (e) => {
-  if (
-    e.target.classList[0] == 'mega-menu-div' ||
-    e.target.classList[0] == 'mega-menu-link'
-  ) {
-    megaMenu.style.display = 'flex';
-  } else {
-    setTimeout(function () {
-      megaMenu.style.display = 'none';
-    }, 2000);
+let timeoutId;
+
+const menuLinks = document.querySelectorAll('.shopping-category > ul > li > a');
+const megamenus = document.querySelectorAll('.mega-menu-div');
+
+for (let i = 0; i < menuLinks.length; i++) {
+  const menuLink = menuLinks[i];
+  const megamenu = megamenus[i];
+
+  menuLink.addEventListener('mouseenter', function () {
+    clearTimeout(timeoutId);
+    closeAllMegamenus(); // hide any open megamenu before showing the current one
+    megamenu.style.display = 'flex';
+  });
+
+  menuLink.addEventListener('mouseleave', function () {
+    timeoutId = setTimeout(function () {
+      megamenu.style.display = 'none';
+    }, 500);
+  });
+
+  megamenu.addEventListener('mouseenter', function () {
+    clearTimeout(timeoutId);
+  });
+
+  megamenu.addEventListener('mouseleave', function () {
+    timeoutId = setTimeout(function () {
+      megamenu.style.display = 'none';
+    }, 500);
+  });
+}
+
+function closeAllMegamenus() {
+  for (let i = 0; i < megamenus.length; i++) {
+    const megamenu = megamenus[i];
+    megamenu.style.display = 'none';
   }
-};
-
-document.addEventListener('mouseover', showMegaMenu);
+}

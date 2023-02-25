@@ -5,6 +5,10 @@ body {
   justify-content: center;
   margin: 0;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
 
 .nav-parent {
   background-color: #f5f5f5;
@@ -104,7 +108,7 @@ nav .header-buttons .divider {
 nav #reward-dropdown {
   position: absolute;
   top: 54px;
-  display: flex;
+  display: none;
   flex-direction: column;
   font-size: 14px;
   justify-content: center;
@@ -114,8 +118,16 @@ nav #reward-dropdown {
   background-color: #fefefe;
   padding: 18px;
   border: 1px black solid;
-  opacity: 0;
 }
+
+.show-reward {
+  display: flex !important;
+}
+
+.rotate180 {
+  transform: rotate(-180deg);
+}
+
 nav #reward-dropdown a {
   padding: 9px;
 }
@@ -128,13 +140,12 @@ nav #my-account-dropdown {
   position: absolute;
   top: 54px;
   background-color: #fefefe;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   width: 12rem;
   padding: 15px;
   border: 1px black solid;
-  opacity: 0;
 }
 nav #my-account-dropdown button {
   background-color: #0076be;
@@ -195,16 +206,17 @@ nav #my-account-dropdown a:hover {
 
 .shopping-category > ul > li > a {
   color: black;
+  position: relative;
 }
 .shopping-category > ul > li:last-child > a {
   color: #ce0e2d;
 }
-.shopping-category > ul > li {
+/* .shopping-category > ul > li {
   position: relative;
   padding-bottom: 10px;
-}
+} */
 
-.shopping-category > ul > li > a:hover:after {
+.shopping-category > ul > li > a:hover::after {
   content: '';
   position: absolute;
   top: 29px;
@@ -214,19 +226,41 @@ nav #my-account-dropdown a:hover {
   height: 2px;
   background: black;
 }
-/* .shopping-category > ul > li:hover .mega-menu-div {
+
+.shopping-category > ul > li:hover .mega-menu-div,
+.mega-menu-div:hover {
+  display: flex;
+}
+.mega-menu-div {
+  animation: hide-megamenu 3s forwards;
+}
+
+@keyframes hide-megamenu {
+  from {
+    display: none;
+  }
+  to {
+    display: flex;
+  }
+}
+
+/* debug code */
+/* .shopping-category > ul > li:hover + .mega-menu-div,
+.mega-menu-div:hover {
   display: flex;
 } */
 .mega-menu-div {
   position: absolute;
-  top: 33px;
+  top: 118px;
+  left: 100px;
   width: 1200px;
   height: 600px;
   background-color: #fefefe;
-  /* display: flex; */
   padding: 20px;
   display: none;
+  /* display: flex; */
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+  gap: 2.5rem;
 }
 
 .mega-menu-div a {
@@ -234,7 +268,7 @@ nav #my-account-dropdown a:hover {
   position: relative;
 }
 
-.mega-menu-div a:hover:after {
+.mega-menu-div a:hover::after {
   content: '';
   position: absolute;
   top: 1px;
@@ -251,6 +285,8 @@ nav #my-account-dropdown a:hover {
   flex-direction: column;
   background-color: #f5f5f5;
   padding: 20px;
+  padding-right: 50px;
+  white-space: nowrap;
 }
 
 .sub-mega-menu > p {
@@ -261,13 +297,155 @@ nav #my-account-dropdown a:hover {
 .super-sub-menu {
   display: flex;
   margin-top: 10px;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-right: 10%;
 }
 
 .super-sub-menu > div {
   display: flex;
   flex-direction: column;
+  width: 200px;
 }
 
 .super-sub-menu > div > a:first-child {
   font-weight: 700;
+}
+.super-sub-menu:last-child > div > a:first-child {
+  font-weight: 400;
+}
+.super-sub-menu:last-child > div {
+  row-gap: 1.2rem;
+}
+
+.shop-save > p:first-child,
+.trending-brands > p:first-child,
+.trending-cat > p:first-child {
+  margin: 20px 9%;
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px black solid;
+}
+
+.shop-save p {
+  margin: 20px 9%;
+}
+
+.trending-brands div,
+.trending-cat div {
+  margin: 20px 9%;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+.trending-brands div a,
+.trending-cat div a {
+  border: 1px black solid;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.3s;
+}
+.trending-brands div a:hover,
+.trending-cat div a:hover {
+  background-color: #dcdcdc;
+}
+
+div > div:has(.footer-nav) {
+  border: 0px grey solid;
+  border-width: 0.5px 0px 0.5px 0px;
+  padding: 25px 0px;
+  margin: 20px 0;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-nav > div {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.footer-nav > div > div {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  row-gap: 20px;
+  font-size: 14px;
+  border-right: 2px gray solid;
+}
+.footer-nav > div > div:last-child {
+  border: none;
+}
+.footer-nav > div > div a:first-child {
+  font-size: 18px;
+}
+.footer-nav > div > div a:hover {
+  text-decoration: underline;
+}
+
+.connect-div {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+  font-size: 18px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.connect-div div:last-child {
+  display: flex;
+}
+.connect-div div:last-child p {
+  width: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.connect-div input {
+  border: 1px solid #cc0000;
+  padding: 13.5px;
+  height: 16px;
+  outline: none;
+}
+
+.connect-div button {
+  background: black;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  height: 44px;
+  width: 76px;
+  cursor: pointer;
+}
+
+.footer-links {
+  margin-top: 50px;
+  display: flex;
+  row-gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  border: 1px gray solid;
+  border-width: 0px 1px 0px 0px;
+  padding: 0px 20px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links + p {
+  text-align: center;
+  color: gray;
 }
