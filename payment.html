@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+
+form>h1{
+    color: black;
+    text-align: center;
+}
+
+
+#checkout{
+ margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 650px;
+    width: 40%;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px 60px;
+}
+
+form input{
+   height: 20px;
+}
+
+label{
+    color: black;
+    font-weight: 800;
+}
+
+#confbutt{
+background-color: #0076be;
+border-color: #0076be;
+  border-radius: 5px;
+  color: white;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+}
+
+#conf{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <div id="checkout">
+        <form >
+            <h1>CHECKOUT</h1>
+            <label>Full Address with Postal PIN</label>
+            <input type="text">
+            <label>Card Number (Credit/Debit)</label>
+            <input type="number">
+            <label>Cardholder's Name</label>
+            <input type="text">
+            <label>Expiry Date</label>
+            <input type="date">
+            <label>CVV</label>
+            <input type="password">
+            <label>OTP</label>
+            <input type="password">
+            <div id="conf">
+                 <button onclick="confirm();" id="confbutt">Confirm Payment</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    function confirm()
+    {
+        alert("ORDER SUCCESSFULLY PLACED!!")
+    }
+</script>
