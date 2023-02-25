@@ -7,13 +7,472 @@
     <title>Login/Sign</title>
     <style>
 
+    /***********************************************NAV**************************************************/
+
+    body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+/* a {
+  text-decoration: none;
+  color: black;
+} */
+
+.nav-parent {
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0px;
+}
+
+nav {
+  display: flex;
+  max-width: 1260px;
+  width: 100%;
+}
+nav .brand-logo {
+  width: 50px;
+}
+nav .header-buttons {
+  display: flex;
+  column-gap: 1.5rem;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+nav .search-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 45px;
+  position: relative;
+  margin-right: 15px;
+}
+
+nav .search-div input {
+  padding: 0px 15px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px #767676 solid;
+  border-right: none;
+  flex: 1;
+  outline: none;
+  height: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: #fefefe;
+  width: 100%;
+}
+nav .search-div button {
+  background-color: #fefefe;
+  border: 1px #767676 solid;
+  height: 46.5px;
+  padding: 0px 20px;
+  margin-right: 1px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  border-left: none;
+}
+nav .search-div button:hover {
+  background-color: #f5f5f5;
+}
+
+.divider {
+  position: absolute;
+  background: #767676;
+  right: -8px;
+  top: 12%;
+  width: 1px;
+  height: 70%;
+}
+
+nav .header-buttons > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+nav .header-buttons > div:hover:after {
+  content: '';
+  position: absolute;
+  height: 1.4px;
+  background: black;
+  top: 53px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+nav .header-buttons .divider {
+  width: 0.5px;
+}
+
+nav #reward-dropdown {
+  position: absolute;
+  top: 54px;
+  display: none;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: center;
+  width: 11rem;
+  white-space: nowrap;
+  row-gap: 0.4rem;
+  background-color: #fefefe;
+  padding: 18px;
+  border: 1px black solid;
+}
+
+.show-reward {
+  display: flex !important;
+}
+
+.rotate180 {
+  transform: rotate(-180deg);
+}
+
+nav #reward-dropdown a {
+  padding: 9px;
+}
+
+nav #reward-dropdown a:hover {
+  background-color: #f5f5f5;
+}
+
+nav #my-account-dropdown {
+  position: absolute;
+  top: 54px;
+  background-color: #fefefe;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 12rem;
+  padding: 15px;
+  border: 1px black solid;
+}
+nav #my-account-dropdown button {
+  background-color: #0076be;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  outline: 1.5px #0076be solid;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+nav #my-account-dropdown button:nth-child(2) {
+  background-color: inherit;
+  color: #0076be;
+  padding: 9px;
+  border: 2px transparent solid;
+}
+nav #my-account-dropdown button:nth-child(2):hover {
+  background-color: inherit;
+  border: 2px #0076be solid;
+}
+nav #my-account-dropdown a {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding: 12px 5px;
+}
+nav #my-account-dropdown a:hover {
+  background-color: #f5f5f5;
+}
+/* .cat-parent {
+} */
+
+.cat-parent {
+  background-color: #fefefe;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.shopping-category {
+  align-self: flex-start;
+  max-width: 1070px;
+  width: 100%;
+  display: flex;
+}
+.shopping-category ul {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  margin-left: 9%;
+  column-gap: 15px;
+  font-size: 14px;
+  /* background-color: red; */
+}
+
+.shopping-category > ul > li > a {
+  color: black;
+  position: relative;
+}
+.shopping-category > ul > li:last-child > a {
+  color: #ce0e2d;
+}
+/* .shopping-category > ul > li {
+  position: relative;
+  padding-bottom: 10px;
+} */
+
+.shopping-category > ul > li > a:hover::after {
+  content: '';
+  position: absolute;
+  top: 29px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: black;
+}
+
+.shopping-category > ul > li:hover .mega-menu-div,
+.mega-menu-div:hover {
+  display: flex;
+}
+.mega-menu-div {
+  animation: hide-megamenu 3s forwards;
+}
+
+@keyframes hide-megamenu {
+  from {
+    display: none;
+  }
+  to {
+    display: flex;
+  }
+}
+
+/* debug code */
+/* .shopping-category > ul > li:hover + .mega-menu-div,
+.mega-menu-div:hover {
+  display: flex;
+} */
+.mega-menu-div {
+  position: absolute;
+  top: 118px;
+  left: 100px;
+  width: 1200px;
+  height: 600px;
+  background-color: #fefefe;
+  padding: 20px;
+  display: none;
+  /* display: flex; */
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
+  gap: 2.5rem;
+}
+
+.mega-menu-div a {
+  padding: 8px 10px;
+  position: relative;
+}
+
+.mega-menu-div a:hover::after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 0;
+  left: 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  width: 1px;
+  background: black;
+}
+
+.sub-mega-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  padding: 20px;
+  padding-right: 50px;
+  white-space: nowrap;
+}
+
+.sub-mega-menu > p {
+  font-weight: 700 !important;
+  font-size: 20px;
+}
+
+.super-sub-menu {
+  display: flex;
+  margin-top: 10px;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-right: 10%;
+}
+
+.super-sub-menu > div {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.super-sub-menu > div > a:first-child {
+  font-weight: 700;
+}
+.super-sub-menu:last-child > div > a:first-child {
+  font-weight: 400;
+}
+.super-sub-menu:last-child > div {
+  row-gap: 1.2rem;
+}
+
+.shop-save > p:first-child,
+.trending-brands > p:first-child,
+.trending-cat > p:first-child {
+  margin: 20px 9%;
+  font-size: 18px;
+  padding-bottom: 5px;
+  border-bottom: 1px black solid;
+}
+
+.shop-save p {
+  margin: 20px 9%;
+}
+
+.trending-brands div,
+.trending-cat div {
+  margin: 20px 9%;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+.trending-brands div a,
+.trending-cat div a {
+  border: 1px black solid;
+  padding: 10px;
+  background-color: white;
+  transition: all 0.3s;
+}
+.trending-brands div a:hover,
+.trending-cat div a:hover {
+  background-color: #dcdcdc;
+}
+
+div > div:has(.footer-nav) {
+  border: 0px grey solid;
+  border-width: 0.5px 0px 0.5px 0px;
+  padding: 25px 0px;
+  margin: 20px 0;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-nav > div {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.footer-nav > div > div {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  row-gap: 20px;
+  font-size: 14px;
+  border-right: 2px gray solid;
+}
+.footer-nav > div > div:last-child {
+  border: none;
+}
+.footer-nav > div > div a:first-child {
+  font-size: 18px;
+}
+.footer-nav > div > div a:hover {
+  text-decoration: underline;
+}
+
+.connect-div {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+  font-size: 18px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.connect-div div:last-child {
+  display: flex;
+}
+.connect-div div:last-child p {
+  width: 200px;
+  margin: 0;
+  text-align: center;
+}
+
+.connect-div input {
+  border: 1px solid #cc0000;
+  padding: 13.5px;
+  height: 16px;
+  outline: none;
+}
+
+.connect-div button {
+  background: black;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  height: 44px;
+  width: 76px;
+  cursor: pointer;
+}
+
+.footer-links {
+  margin-top: 50px;
+  display: flex;
+  row-gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  border: 1px gray solid;
+  border-width: 0px 1px 0px 0px;
+  padding: 0px 20px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-links + p {
+  text-align: center;
+  color: gray;
+}
+
+
+
+
+
         /* ************************************************LOGIN********************************************** */
      
-        #container{
+        #coco{
            
             display: flex;
            justify-content: center;
            align-items: center;
+           padding-top: 50px;
            /* border: 5px solid red; */
         }
         .boxkg{
@@ -39,7 +498,7 @@
             padding: 8px 26px;
             border-radius: 5px;
         }
-        #cont{
+        #coco2{
             
             background: #0076be;
             color: white;
@@ -84,7 +543,7 @@ color: white;
     /* border: 5px solid red; */
     height: 130px;
     width: 100%;
-    font-size: 18px;
+    font-size: 17px;
     padding: 15px;
 }
 .new{
@@ -98,11 +557,934 @@ color: white;
 </head>
 <body>
 
+    <!-- **********************************************NAV************************************************* -->
+
+ <div class="nav-parent">
+      <nav>
+        <img class="brand-logo" src="./assets/FlexKart.svg" />
+        <div class="search-div">
+          <input type="text" placeholder="What can we help you find?" />
+          <button><img src="./assets/search.svg" alt="" /></button>
+          <div class="divider"></div>
+        </div>
+        <div class="header-buttons">
+          <div id="reward-div">
+            <div>
+              <img src="./assets/reward.svg" />
+              <img id="rew-chevron" src="./assets/chevron-down.svg" />
+            </div>
+            <div>Flex Reward+</div>
+            <div id="reward-dropdown">
+              <a href="">Manage My Account</a>
+              <a href="">Pay My Bill</a>
+              <a href="">My Reward Card Benefits</a>
+              <a href="">Apply For a New Card</a>
+            </div>
+          </div>
+          <div>
+            <img src="./assets/coupon.svg" />
+            <div>Coupons</div>
+          </div>
+          <div id="my-account-div">
+            <div>
+              <img src="./assets/my-account.svg" />
+              <img id="acc-chevron" src="./assets/chevron-down.svg" />
+            </div>
+            <div>My Account</div>
+            <div class="divider"></div>
+            <div id="my-account-dropdown">
+              <button>Sign In</button>
+              <button>Create Account</button>
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find My Order</a
+              >
+              <a href=""><img src="./assets/check.svg" alt="" />Reward +</a>
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find a Wish List</a
+              >
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find a Registry</a
+              >
+            </div>
+          </div>
+          <div>
+            <img src="./assets/logo.svg" />
+            <div>Bag</div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="cat-parent">
+      <div class="shopping-category">
+        <ul>
+          <li>
+            <a class="mega-menu-link" href="">Gifts</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Gifts</p>
+                <a href="">Beauty Gifts</a>
+                <a href="">Cozy Shop</a>
+                <a href="">Designer Handbags</a>
+                <a href="">Eco Friendly</a>
+                <a href="">Fine Jewelary</a>
+                <a href="">For the Trend Setter</a>
+                <a href="">Gift Cards</a>
+                <a href="">Gifts with a purpose</a>
+                <a href="">Intimates</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">All Gifts</a>
+                  <a href="">Gifts for Her</a>
+                  <a href="">Gifts for Him</a>
+                  <a href="">Gifts for Kids</a>
+                  <a href="">Gifts for the Home</a>
+                  <a href="">Gifts for Pets</a>
+                  <a href="">Gift Cards</a> <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Just for Kids</a>
+                  <a href="">Active Gear</a>
+                  <a href="">Kids Fan Gear</a>
+                  <a href="">Toyz & Games</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Gifts by Price</a>
+                  <a href="">Under $10</a>
+                  <a href="">Under $25</a>
+                  <a href="">Under $50</a>
+                  <a href="">Under $100</a>
+                  <a href="">Over $100</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Brahmin</a>
+                  <a href="">Estee Lauder</a>
+                  <a href="">Free People</a>
+                  <a href="">Michael Kors</a>
+                  <a href="">Ralph Lauren</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Gifts by Recipient</a>
+                  <a href="">For the Foodie</a>
+                  <a href="">For the Hostess</a>
+                  <a href="">For the Outdoorsman</a>
+                  <a href="">For the Sports Fan</a>
+                  <a href="">For the Techie</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="mega-menu-link" href="">Women</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Women</p>
+                <a href="">New Arrival</a>
+                <a href="">Active Shop</a>
+                <a href="">Contemporay</a>
+                <a href="">Cozy Shop</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Denim Shop</a>
+                <a href="">Designer</a>
+                <a href="">Fan Gear</a>
+                <a href="">Gifts for Her</a>
+                <a href="">Pajamas & Robes</a>
+                <a href="">Women's Clearance</a>
+                <a href="">Gifts Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Women's Clothing</a>
+                  <a href="">Bras, Panties & Lingeries</a>
+                  <a href="">Coats & Outerwear</a>
+                  <a href="">Dresses</a>
+                  <a href="">Pants & Leggins</a>
+                  <a href="">Sweaters</a>
+                  <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Women's Tops</a>
+                  <a href="">Blouses</a>
+                  <a href="">Button Down Tops</a>
+                  <a href="">Hoodies & Sweatshirts</a>
+                  <a href="">Tunics</a>
+                  <a href="">T-Shirts</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Plus Size Clothing</a>
+                  <a href="">Bars, Panties & Lingerie</a>
+                  <a href="">Dresses</a>
+                  <a href="">Jeans</a>
+                  <a href="">Pants</a>
+                  <a href="">Tops</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Junior's Clothing</a>
+                  <a href="">Activewear</a>
+                  <a href="">Dresses</a>
+                  <a href="">Jeans</a>
+                  <a href="">Junior's Plus</a>
+                  <a href="">Tops</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Petite Clothing</a>
+                  <a href="">Dresses</a>
+                  <a href="">Jeans</a>
+                  <a href="">Pants</a>
+                  <a href="">Suits & Suit Separates</a>
+                  <a href="">Tops</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Women''s Dresses</a>
+                  <a href="">Casual</a>
+                  <a href="">Cocktail</a>
+                  <a href="">Cocktail & Party</a>
+                  <a href="">Formal</a>
+                  <a href="">Maxi</a>
+                  <a href="">Work</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Men</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Men</p>
+                <a href="">New Arrival</a>
+                <a href="">Active Shop</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Designer</a>
+                <a href="">Fan Gear</a>
+                <a href="">Formal Wear & Wedding</a>
+                <a href="">Gifts for Him</a>
+                <a href="">Golf Shop</a>
+                <a href="">Outdoor Shop</a>
+                <a href="">Men's Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Men's Clothing</a>
+                  <a href="">Dress Shirts</a>
+                  <a href="">Jeans</a>
+                  <a href="">Pants</a>
+                  <a href="">Shirts</a>
+                  <a href="">Suits Separates</a>
+                  <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Shoes</a>
+                  <a href="">Boots</a>
+                  <a href="">Casual Shoes</a>
+                  <a href="">Dres Shoes</a>
+                  <a href="">Slippers</a>
+                  <a href="">Sneakers</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Big & Tall Clothing</a>
+                  <a href="">Active & Outdoor</a>
+                  <a href="">Pants</a>
+                  <a href="">Polos</a>
+                  <a href="">Shirts</a>
+                  <a href="">Suits & Sports Coats</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Men's Accessories</a>
+                  <a href="">Belt & Suspenders</a>
+                  <a href="">Gifts & Gadgets</a>
+                  <a href="">Hats</a>
+                  <a href="">Ties & Pocket Squares</a>
+                  <a href="">Wallets & Money Clips</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Men's Jewelary & Watches</a>
+                  <a href="">Bracelets</a>
+                  <a href="">Jewelary Sets</a>
+                  <a href="">Necklaces</a>
+                  <a href="">Rings</a>
+                  <a href="">Watches</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Kids</a>
+                  <a href="">Active & Outdoor</a>
+                  <a href="">Graphics Tees</a>
+                  <a href="">Hoodies & Sweatshirts</a>
+                  <a href="">Jeans</a>
+                  <a href="">Shirts</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Kids</a>
+
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Kids</p>
+                <a href="">New Arrival</a>
+                <a href="">Baby Essentials</a>
+                <a href="">Birthday & Holiday</a>
+                <a href="">Character Shop</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Dresswear</a>
+                <a href="">Gift for Kids</a>
+                <a href="">Kid's Shoes</a>
+                <a href="">Nursery & Decor</a>
+                <a href="">Toys & Games</a>
+                <a href="">Baby & Kids Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Boy's Clothing</a>
+                  <a href="">Activewear</a>
+                  <a href="">Jeans</a>
+                  <a href="">Pants</a>
+                  <a href="">Shits</a>
+                  <a href="">Suits & Dresswear</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Junior's Clothing</a>
+                  <a href="">Activewear</a>
+                  <a href="">Dresses</a>
+                  <a href="">Jeans</a>
+                  <a href="">Plus Size</a>
+                  <a href="">Tops</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Girl's Clothing</a>
+                  <a href="">Activewear</a>
+                  <a href="">Dresses & Shirts</a>
+                  <a href="">Jeans</a>
+                  <a href="">Sets & Outfits</a>
+                  <a href="">Tops</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Shop by Size</a>
+                  <a href="">Boys (8-20)</a>
+                  <a href="">Free People</a>
+                  <a href="">Michael Kors</a>
+                  <a href="">Ralph Lauren</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Gifts by Recipient</a>
+                  <a href="">For the Foodie</a>
+                  <a href="">For the Hostess</a>
+                  <a href="">For the Outdoorsman</a>
+                  <a href="">For the Sports Fan</a>
+                  <a href="">For the Techie</a>
+                  <a href="">Gift Cards</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Shoes</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Shoes</p>
+                <a href="">New Arrivals</a>
+                <a href="">Extra Wide</a>
+                <a href="">Gift Shop</a>
+                <a href="">Narrow</a>
+                <a href="">Show Accessories</a>
+                <a href="">Size 11+</a>
+                <a href="">Special Occasion</a>
+                <a href="">Wide</a>
+                <a href="">Shoe Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Women's Shoes</a>
+                  <a href="">Boots</a>
+                  <a href="">Comfort</a>
+                  <a href="">Designer</a>
+                  <a href="">Heels & Pumps</a>
+                  <a href="">Sneakers</a>
+                  <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Kid's Shoes</a>
+                  <a href="">Boy's Shoes</a>
+                  <a href="">Girl's Shoes</a>
+                  <a href="">Baby (Sizes 1-4)</a>
+                  <a href="">Boy's Sneakers</a>
+                  <a href="">Girl's Sneakers</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Men's Shoes</a>
+                  <a href="">Boots</a>
+                  <a href="">Casual Shoes</a>
+                  <a href="">Designer</a>
+                  <a href="">Dress Shoes</a>
+                  <a href="">Sneakers</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Shoe Brands</a>
+                  <a href="">Free People</a>
+                  <a href="">MICHAEL Michael Kors</a>
+                  <a href="">Sam Edelman</a>
+                  <a href="">Steve Madden</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Junior's Shoes</a>
+                  <a href="">Boots</a>
+                  <a href="">Flats</a>
+                  <a href="">Heels & Pumps</a>
+                  <a href="">Sneakers</a>
+                  <a href="">Wedges</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Handbags</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Handbags</p>
+                <a href="">New Arrivals</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Designer</a>
+                <a href="">Gift Shop</a>
+                <a href="">Small Accessories</a>
+                <a href="">Stationery & Gifts</a>
+                <a href="">Sunnies Sunglasses Shop</a>
+                <a href="">Winter Accessories</a>
+                <a href="">Handbags Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Purses & Handbags</a>
+                  <a href="">Crossbody Bags</a>
+                  <a href="">Designer</a>
+                  <a href="">Satchels</a>
+                  <a href="">Shoulder Bags</a>
+                  <a href="">Totes</a>
+                  <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Travel & Luggage</a>
+                  <a href="">Carry-On Luggage</a>
+                  <a href="">Checked Luggage</a>
+                  <a href="">Luggage Sets</a>
+                  <a href="">Spinner</a>
+                  <a href="">Hardside</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Women's Accessories</a>
+                  <a href="">Belts</a>
+                  <a href="">Hats</a>
+                  <a href="">Scarves & Wraps</a>
+                  <a href="">Sunglasses</a>
+                  <a href="">Wallets</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Handbag Bags</a>
+                  <a href="">Brahmin</a>
+                  <a href="">COACH</a>
+                  <a href="">Dooney & Bourke</a>
+                  <a href="">Lauren Ralph Lauren</a>
+                  <a href="">MICHAEL Michael Kors</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Vintage Handbags</a>
+                  <a href="">Chanel</a>
+                  <a href="">Chloe</a>
+                  <a href="">Gucci</a>
+                  <a href="">Louis Vuitton</a>
+                  <a href="">Prada</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Sunnies Sunglasses Shop</a>
+                  <a href="">Burberry</a>
+                  <a href="">Gucci</a>
+                  <a href="">Oakley</a>
+                  <a href="">Ray-Ban</a>
+                  <a href="">Versace</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Jewelry</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Jewelary</p>
+                <a href="">New Arrivals</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Diamond Guide</a>
+                <a href="">Gift Shop</a>
+                <a href="">Personalized Jewelary</a>
+                <a href="">Sterling Silver</a>
+                <a href="">Jewelary Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Fine Jewelary</a>
+                  <a href="">Birthstones</a>
+                  <a href="">Bracelets</a>
+                  <a href="">Earrings</a>
+                  <a href="">Necklaces</a>
+                  <a href="">Rings</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Watches</a>
+                  <a href="">Designer Watches</a>
+                  <a href="">Fitness Watches</a>
+                  <a href="">Luxury Watches</a>
+                  <a href="">Men's Watches</a>
+                  <a href="">Women's Watches</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Fashion Jewelary</a>
+                  <a href="">Bracelets</a>
+                  <a href="">Earrings</a>
+                  <a href="">Jewelary Sets</a>
+                  <a href="">Necklaces</a>
+                  <a href="">Rings</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Men's Jewelary</a>
+                  <a href="">Bracelets</a>
+                  <a href="">Cuffinks & Tie Bars</a>
+                  <a href="">Jewelary Sets</a>
+                  <a href="">Necklaces</a>
+                  <a href="">Rings</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Wedding & Engagement</a>
+                  <a href="">Anniversary</a>
+                  <a href="">Bridal Sets</a>
+                  <a href="">Diamond Guide</a>
+                  <a href="">Engagement</a>
+                  <a href="">Wedding Bands</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Jewelary Brands</a>
+                  <a href="">Flex & Co</a>
+                  <a href="">Flex Silverworks</a>
+                  <a href="">Effy</a>
+                  <a href="">Lauren Ralph Lauren</a>
+                  <a href="">Le Vian</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Beauty</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Beauty</p>
+                <a href="">New Arrivals</a>
+                <a href="">Bath & Body</a>
+                <a href="">Beauty Gifts & Sets</a>
+                <a href="">Clean Beauty</a>
+                <a href="">The Culture Shop</a>
+                <a href="">Free Gift with Purchase</a>
+                <a href="">Gift Shop</a>
+                <a href="">Inclusive Eligible</a>
+                <a href="">Subscription Eligible</a>
+                <a href="">Beauty Clearance</a>
+                <a href="">Gifts Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Makeup</a>
+                  <a href="">Eye Makeup</a>
+                  <a href="">Face Makeup</a>
+                  <a href="">Lip Makeup</a>
+                  <a href="">Mascara</a>
+                  <a href="">Palettes & Sets</a>
+                  <a href="">Shop Al...</a>
+                </div>
+                <div>
+                  <a href="">Men's Gromming & Cologne</a>
+                  <a href="">Gift & Value Sets</a>
+                  <a href="">Hair & Body Care</a>
+                  <a href="">Men's Cologne</a>
+                  <a href="">Shaving</a>
+                  <a href="">Skin Care</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Fragrances</a>
+                  <a href="">Candles & Diffusers</a>
+                  <a href="">Deodorants</a>
+                  <a href="">Fragrance Gifts & Sets</a>
+                  <a href="">Men's Cologne</a>
+                  <a href="">Women's Perfumes</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Hair Care & Tools</a>
+                  <a href="">Curling Irons & Hair Rollers</a>
+                  <a href="">Hair Dryers</a>
+                  <a href="">Hair Straighteners</a>
+                  <a href="">Shampoos & Conditoners</a>
+                  <a href="">Styling Products</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Skin Care</a>
+                  <a href="">Cleansers</a>
+                  <a href="">Gift & Value Sets</a>
+                  <a href="">Masks</a>
+                  <a href="">Moisturizers</a>
+                  <a href="">Treatments & Serums</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Beauty Brands</a>
+                  <a href="">Benefit Cosmetics</a>
+                  <a href="">Bobbi Brown</a>
+                  <a href="">Clinique</a>
+                  <a href="">Estee Lauder</a>
+                  <a href="">MAC</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Home</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Home</p>
+                <a href="">New Arrivals</a>
+                <a href="">Conn's x Flex</a>
+                <a href="">Electronics</a>
+                <a href="">Health & Wellness</a>
+                <a href="">Organization & Cleaning</a>
+                <a href="">Rugs</a>
+                <a href="">Toys & Games</a>
+                <a href="">Window Treatments</a>
+                <a href="">Home Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Kitchen</a>
+                  <a href="">Appliances</a>
+                  <a href="">Bakeware</a>
+                  <a href="">Cookware</a>
+                  <a href="">Food Storage</a>
+                  <a href="">Utensils & Gadgets</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Travel & Luggage</a>
+                  <a href="">Carry-On Luggage</a>
+                  <a href="">Checked Luggage</a>
+                  <a href="">Duffle & Weekender Bags</a>
+                  <a href="">Hardside Luggage</a>
+                  <a href="">Luggage Sets</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Home Decor</a>
+                  <a href="">Candles & Fragrance</a>
+                  <a href="">Decorative Accents</a>
+                  <a href="">Lamps & Lighting</a>
+                  <a href="">Throws & Throw Pillows</a>
+                  <a href="">Wall Art & Decor</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Furniture</a>
+                  <a href="">Bedroom</a>
+                  <a href="">Home Office</a>
+                  <a href="">Kitchen & Dining Room</a>
+                  <a href="">Living Room</a>
+                  <a href="">Outdoor & Patio</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Tabletop & Bar</a>
+                  <a href="">Dinnerware</a>
+                  <a href="">Drinkware</a>
+                  <a href="">Silverware & Flatware</a>
+                  <a href="">Serveware</a>
+                  <a href="">Table Linens</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Holiday</a>
+                  <a href="">Valentine's Day</a>
+                  <a href="">Easter</a>
+                  <a href="">Food & Gourmet Gifts</a>
+                  <a href="">Housewarming Gifts</a>
+                  <a href="">Tech Gifts</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Bed & Bath</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Bed & Bath</p>
+                <a href="">New Arrivals</a>
+                <a href="">Furniture</a>
+                <a href="">Rugs</a>
+                <a href="">Window Treatments</a>
+                <a href="">Bed & Bath Clearance</a>
+                <a href="">Gift Cards</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Bedding</a>
+                  <a href="">Bed in a Bag</a>
+                  <a href="">Bedspreads</a>
+                  <a href="">Comforters</a>
+                  <a href="">Quilts & Coverlets</a>
+                  <a href="">Sheets</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Health & Wellness</a>
+                  <a href="">Air Purifiers & Sanitizing</a>
+                  <a href="">Dental Care</a>
+                  <a href="">Digital Scales</a>
+                  <a href="">Humdifiers & Diffusers</a>
+                  <a href="">Massagers & Foot Spas</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Bedding Basics</a>
+                  <a href="">Bed Pillows</a>
+                  <a href="">Down & Down Alternative</a>
+                  <a href="">Mattress Pads & Toppers</a>
+                  <a href="">Pillowcases & Protectors</a>
+                  <a href="">Sheets</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Bed & Bath Brands</a>
+                  <a href="">Biltmore</a>
+                  <a href="">J. Queen New York</a>
+                  <a href="">Madison Park</a>
+                  <a href="">Modern. Southern. Home</a>
+                  <a href="">Waverly</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Bath</a>
+                  <a href="">Bathroom Accessories</a>
+                  <a href="">Bath Rugs & Mats</a>
+                  <a href="">Bath Towels</a>
+                  <a href="">Beach Towels</a>
+                  <a href="">Shower Curtains</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Holiday</a>
+                  <a href="">Valentine's Day</a>
+                  <a href="">Easter</a>
+                  <a href="">Mother's Day</a>
+                  <a href="">Father's Day</a>
+                  <a href="">Fourth of July</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Conn's x Flex</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Conn's x Flex</p>
+                <a href="">Appliances</a>
+                <a href="">Decor</a>
+                <a href="">Electronics</a>
+                <a href="">Furniture</a>
+                <a href="">Mattresses & Bedding</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Appliances</a>
+                  <a href="">Major Appliances</a>
+                  <a href="">Small Appliances</a>
+                  <a href="">Vacuums</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Furniture</a>
+                  <a href="">Bathroom</a>
+                  <a href="">Bedroom</a>
+                  <a href="">Home Office</a>
+                  <a href="">Kitchen & Dining Room</a>
+                  <a href="">Living Room</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Decor</a>
+                  <a href="">Lamps & Lighting</a>
+                  <a href="">Rugs</a>
+                  <a href="">Wall Art & Decor</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Mattresses & Bedding</a>
+                  <a href="">Bedding</a>
+                  <a href="">Mattresses, Box Springs &</a>
+                  <a href="">Frames</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Electronics</a>
+                  <a href="">Computers & Accessories</a>
+                  <a href="">Gaming & Toys</a>
+                  <a href="">Home Electronics</a>
+                  <a href="">Smart Home</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Brands</a>
+            <div class="mega-menu-div">
+              <div class="sub-mega-menu">
+                <p>Brands</p>
+                <a href="">Active Brands</a>
+                <a href="">Flex Exclusives</a>
+                <a href="">Jewelry Brands</a>
+                <a href="">Kids Brands</a>
+                <a href="">Shoe Brands</a>
+              </div>
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Designer Brands</a>
+                  <a href="">Brahmin</a>
+                  <a href="">COACH</a>
+                  <a href="">Free People</a>
+                  <a href="">MICHAEL Michael Kors</a>
+                  <a href="">Ralph Lauren</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Men's Brands</a>
+                  <a href="">Columbia</a>
+                  <a href="">Crown & Ivy</a>
+                  <a href="">IZOD</a>
+                  <a href="">Levi's</a>
+                  <a href="">Polo Ralph Lauren</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Flex Exclusives</a>
+                  <a href="">Flex & co</a>
+                  <a href="">Biltmore</a>
+                  <a href="">Crown & Ivy</a>
+                  <a href="">THE LIMITED</a>
+                  <a href="">Wonderly</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Beauty Brands</a>
+                  <a href="">Bobbi Brown</a>
+                  <a href="">Clinique</a>
+                  <a href="">Elizabeth Arden</a>
+                  <a href="">Estee Lauder</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Women's Brands</a>
+                  <a href="">Crown & Ivy</a>
+                  <a href="">Lauren Ralph Lauren</a>
+                  <a href="">MICHAEL Michael Kors</a>
+                  <a href="">THE LIMITED</a>
+                  <a href="">Wonderly</a>
+                  <a href="">Shop All...</a>
+                </div>
+                <div>
+                  <a href="">Home Brands</a>
+                  <a href="">Biltmore</a>
+                  <a href="">Lauren Ralph Lauren</a>
+                  <a href="">Madison Park</a>
+                  <a href="">Modern. Southern. Home.</a>
+                  <a href="">SOLITE</a>
+                  <a href="">Shop All...</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="">Clearance</a>
+            <div class="mega-menu-div">
+              <!-- <div class="sub-mega-menu"></div> -->
+              <div class="super-sub-menu">
+                <div>
+                  <a href="">Women's Clearance</a>
+                  <a href="">Kids & Baby Clearance</a>
+                  <a href="">Handbags & Accessories Clearance</a>
+                  <a href="">Beauty Clearance</a>
+                </div>
+                <div>
+                  <a href="">Men's Clearance</a>
+                  <a href="">Shoe Clearance</a>
+                  <a href="">Bed & Bath Clearancce</a>
+                </div>
+                <div>
+                  <a href="">Junior's Clearance</a>
+                  <a href="">Jewelary Clearance</a>
+                  <a href="">For The Home Clearance</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
 
     <!-- ************************************************LOGIN******************************************* -->
 
-       </div> 
-    <div id="container">
+    </div> 
+    <div id="coco">
         
         <div class="boxkg"> 
             <div>
@@ -112,7 +1494,7 @@ color: white;
                 <form>
                     <input id="email" type="email"name = "email" size="50"
                     placeholder="Email" aria-required="false" border-radius="5px" height="50px"/>
-                    <input type="submit" value="Sign In" id="cont" size="60" />
+                    <input type="submit" value="Sign In" id="coco2" size="60" />
                 </form>
                 <div class="kk">
                     Keep me signed in - Uncheck if using a public device &nbsp;&nbsp;&nbsp;<input type="checkbox" checked="checked">
@@ -120,7 +1502,7 @@ color: white;
                     <br>
                     <div class="new">
                         <p>
-                            By signing into your account, you agree <br> to Belk's <a href="" data-tealium-listener="">Privacy Policy</a> &amp; <a href="" data-tealium-listener="">Terms of Use</a>.
+                            By signing into your account, you agree <br> to Flex's <a href="" data-tealium-listener="">Privacy Policy</a> &amp; <a href="" data-tealium-listener="">Terms of Use</a>.
                             </p>
                     </div>
                 </div>
@@ -131,6 +1513,133 @@ color: white;
             </div>
         </div> 
     </div>  
+
+    <!-- *********************************************FOOTER*************************************************** -->
+    <div class="shop-save"> <!-- Start of FOOTER -->
+        <p>Shop & Save Today</p>
+        <p>
+          From luggage sets to crossbody bags and fine jewelry, you’ll find what
+          you’re shopping for (and so much more!) on Flex.com. Shop designer
+          handbags from many brands including Brahmin and Michael Kors, skincare
+          and makeup from your favorites like Estée Lauder and Clinique or men’s
+          suits and sport coats from stylish brands like Tommy Hilfiger. Get chic
+          in a variety of shoes for women, get active in Nike® or get outdoors in
+          Columbia and Sperry®. Update your home with bedspreads, comforter sets
+          and new cookware. Create picture-perfect looks with our large selection
+          of kids’ and baby clothes. Treat yourself to something new with our wide
+          variety of purses, jewelry and accessories. If you’re searching for
+          luxury gifts, shop our selection of designer watches and Le Vian®
+          jewelry. No matter your style or your lifestyle, you’ll find something
+          you love at Flex. Happy shopping!
+        </p>
+      </div>
+      <div class="trending-cat">
+        <p>Trending Categories</p>
+        <div>
+          <a href="">Men's Watches</a>
+          <a href="">Women's Shoes</a>
+          <a href="">Perfume</a>
+          <a href="">Men's Suits</a>
+          <a href="">Women's Boots</a>
+          <a href="">Luggage Sets</a>
+          <a href="">Women's Watches</a>
+          <a href="">Girls Dresses</a>
+          <a href="">Comforters</a>
+        </div>
+      </div>
+      <div class="trending-brands">
+        <p>Trending Brands</p>
+        <div>
+          <a href="">Brahmin</a>
+          <a href="">Estee Lauder</a>
+          <a href="">Michael Kors</a>
+          <a href="">Columbia</a>
+          <a href="">Levi's</a>
+          <a href="">Sperry®</a>
+          <a href="">Cuisinart</a>
+          <a href="">Clinique</a>
+          <a href="">Tommy Hilfiger</a>
+          <a href="">Ugg®</a>
+          <a href="">Le Vian®</a>
+          <a href="">Free People</a>
+          <a href="">Nine West</a>
+        </div>
+      </div>
+      <div>
+        <div>
+          <div class="footer-nav">
+            <div>
+              <div>
+                <a href="">Customer Service</a>
+                <a href="">Contact Us</a>
+                <a href="">Find My Order</a>
+                <a href="">Returs & Refunds</a>
+                <a href="">Find a Store</a>
+                <a href="">Find a Registry</a>
+                <a href="">Find a Wish List</a>
+                <a href="">Shipping Information</a>
+                <a href="">Pickup & Delivery Options</a>
+                <a href="">Policies & Guidelines</a>
+                <a href="">FAQs</a>
+              </div>
+              <div>
+                <a href="">Reward+ Credit Card</a>
+                <a href="">Apply for a Reward+ credit card</a>
+                <a href="">Pay My Bill</a>
+                <a href="">Manage My Account</a>
+                <a href="">Reward+ Credit Card Benefits</a>
+              </div>
+              <div>
+                <a href="">About Flex</a>
+                <a href="">Careers</a>
+                <a href="">Catalogs & Ads</a>
+                <a href="">Brands We Carry</a>
+                <a href="">Newsroom</a>
+                <a href="">Behind the Brand</a>
+                <a href="">Vendor Resources</a>
+                <a href="">Store Events</a>
+              </div>
+              <div>
+                <a href="">Get App</a>
+                <img src="./assets/FlexKart.svg" alt="" />
+                <img src="./assets/google-play-badge.png" alt="" />
+                <img src="./assets/google-play-badge.png" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="connect-div">
+            <div class="social-icon">
+              <a href="">Stay Connected</a>
+              <a href=""><img src="./assets/facebook.svg" alt="" /></a>
+              <a href=""><img src="./assets/twitter.svg" alt="" /></a>
+              <a href=""><img src="./assets/pininterest.svg" alt="" /></a>
+              <a href=""><img src="./assets/insta.svg" alt="" /></a>
+            </div>
+            <div>
+              <p>Get $10 off with email sign-up! Use on top of coupons.</p>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter you email address"
+                  name=""
+                  id="" /><button>Join</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="">Terms of Use</a>
+        <a href="">Privacy Policy</a>
+        <a href=""> State-Specific Privary Notices</a>
+        <a href="">Enable Accessibility</a>
+        <a href="">Accessibility Statements</a>
+        <a href="">Do Not Sell or Share My Personal Information</a>
+        <a href="">CA Transparency in Supply Chain</a>
+        <a href="">Site Map</a>
+        <a href="">Feedback</a>
+      </div>
+      <p>© 2023 Flex, Inc. &amp; Flex eCommerce LLC. All Rights Reserved.</p>
         
 </body>
 </html>
