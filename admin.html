@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
         }
-        #container-nav>div:nth-child(1){
+
+        #container-nav>div:nth-child(1) {
             display: flex;
             height: 30px;
             font-size: 20px;
@@ -19,49 +21,60 @@
             justify-content: space-around;
             align-items: center;
         }
-        #container-nav>div:nth-child(1)>span{
+
+        #container-nav>div:nth-child(1)>span {
             text-align: center;
             width: 25%;
             box-shadow: 0 0 4px gray;
             cursor: pointer;
-        }#container-nav>div:nth-child(1)>span:hover{
+        }
+
+        #container-nav>div:nth-child(1)>span:hover {
             background-color: gray;
         }
-        #container>div{
+
+        .displayProduct>div {
             display: flex;
             max-width: 1300px;
+            border-radius: 10px;
             margin: 20px auto 20px;
             box-shadow: 0px 0px 4px rgb(165, 164, 164);
-            border-radius: 10px;
         }
-        #container>div div{
+
+        .displayProduct>div div {
             padding: 10px;
         }
-        #container>div:hover{
+
+        .displayProduct>div:hover {
             background-color: white;
         }
-        #container img{
+
+        #container img {
             max-width: 100%;
         }
-        
-        #container{
+
+        #container {
             background: rgb(252, 250, 250);
         }
-        #container>div div:nth-child(1){
+
+        .displayProduct>div div:nth-child(1) {
             width: 20%;
         }
-        #container>div div:nth-child(2){
+
+        .displayProduct>div div:nth-child(2) {
             width: 75%;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        #container>div p{
+
+        .displayProduct>div p {
             margin-top: 10px;
             margin-bottom: 5px;
-        } 
-        .remove{
+        }
+
+        .remove {
             display: block;
             margin-left: 40px;
             font-size: 20px;
@@ -72,18 +85,46 @@
             border-radius: 10px;
             color: white;
         }
-        .displayGrid{
+
+        .displayUser {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             margin: 20px 50px 20px;
+            gap: 20px;
         }
 
+        .displayUser>div {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 4px rgb(165, 164, 164);
+        }
+
+        .displayUser>div div:nth-child(2) {
+            padding: 20px;
+        }
+
+        .displayUser>div h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .displayUser>div p {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .displayUser>div .remove {
+            display: block;
+            margin: auto;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <div id="container-nav">
-        <div><span id="products">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span id="ourTeam">OUR TEAM</span></div>
+        <div><span id="products">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span
+                id="ourTeam">OUR TEAM</span></div>
         <div id="maincontainer">
             <h1 id="about"></h1>
             <div id="container"></div>
@@ -91,59 +132,78 @@
     </div>
 </body>
 <script>
-    let container=document.querySelector("#container")
-    let url='https://63f63abd59c944921f6ff45a.mockapi.io/'
-    async function fetchData(data="products")
-    {
-        try {
-            let res=await fetch(`${url+data}`)
-            res=await res.json();
-            if(data=="products")
-            displayProduct(res);
-            else if(data=="users")
-            displayUsers(res)
-        } catch (error) {
-            console.log(error)
+    let container = document.querySelector("#container")
+    async function fetchData(data = "products", page = 1) {
+        if (data == "products") {
+            try {
+                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}?limit=10&&page=${page}`)
+                res = await res.json();
+                displayProduct(res);
+            }
+            catch (error) {
+                console.log(error)
+            }
         }
+        else if (data == "users") {
+            try {
+                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}?limit=10&&page=${page}`)
+                res = await res.json();
+                displayUsers(res)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        else if (data == "employees") {
+            try {
+                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}?limit=15&&page=${page}`)
+                res = await res.json();
+                displayEmployees(res)
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+
     }
     fetchData();
-    let data=document.querySelectorAll("span")
+    let data = document.querySelectorAll("span")
     data.forEach(el => {
-        el.addEventListener("click",()=>{
+        el.addEventListener("click", () => {
             fetchData(el.id)
         })
     });
-    function displayProduct(arr)
-    {
-        container.innerHTML=""
-        for(let i=0;i<arr.length;i++){
-            let card=document.createElement("div")
-            let div1=document.createElement("div")
-            let image=document.createElement("img")
-            let div2=document.createElement("div")
-            let title=document.createElement("h1")
-            let brand=document.createElement("p")
-            let searchKey=document.createElement("p");
-            let type=document.createElement("p")
-            let desc=document.createElement("p");
-            let price=document.createElement("p")
-            let button=document.createElement("button")
-            image.src=arr[i].src;
-            title.innerText=arr[i].title;
-            brand.innerHTML=`<b>Brannd :-  ${arr[i].brand}</b>`
-            type.innerHTML=`For :- <b>${arr[i].type}</b>`;
-            searchKey.innerText=`Search Key :- ${arr[i].check}`;
-            desc.innerHTML=`<b>Discription</b> :- ${arr[i].discription}`;
-            price.innerHTML=`Price :- <b>${arr[i].price}</b>`;
-            button.innerText="Remove"
-            button.setAttribute("class","remove")
-            button.addEventListener("click",()=>{
-                async function DeleteProducts(){
+    function displayProduct(arr) {
+        container.innerHTML = ""
+        container.className = ''
+        container.setAttribute("class", "displayProduct")
+        for (let i = 0; i < arr.length; i++) {
+            let card = document.createElement("div")
+            let div1 = document.createElement("div")
+            let image = document.createElement("img")
+            let div2 = document.createElement("div")
+            let title = document.createElement("h1")
+            let brand = document.createElement("p")
+            let searchKey = document.createElement("p");
+            let type = document.createElement("p")
+            let desc = document.createElement("p");
+            let price = document.createElement("p")
+            let button = document.createElement("button")
+            image.src = arr[i].src;
+            title.innerText = arr[i].title;
+            brand.innerHTML = `<b>Brannd :-  ${arr[i].brand}</b>`
+            type.innerHTML = `For :- <b>${arr[i].type}</b>`;
+            searchKey.innerText = `Search Key :- ${arr[i].check}`;
+            desc.innerHTML = `<b>Discription</b> :- ${arr[i].discription}`;
+            price.innerHTML = `Price :- <b>${arr[i].price}</b>`;
+            button.innerText = "Remove"
+            button.setAttribute("class", "remove")
+            button.addEventListener("click", () => {
+                async function DeleteProducts() {
                     try {
-                        let res=await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/products/${arr[i].id}`,{
-                            method:'DELETE',
-                            headers:{
-                                'Content-Type':'application/json'
+                        let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/products/${arr[i].id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json'
                             },
                         })
                     } catch (error) {
@@ -151,45 +211,46 @@
                     }
                 }
                 DeleteProducts();
-                arr.splice(i,1)
+                arr.splice(i, 1)
                 displayProduct(arr);
             })
             div1.append(image)
-            div2.append(title,brand,desc,type,price,searchKey)
-            card.append(div1,div2,button)
+            div2.append(title, brand, desc, type, price, searchKey)
+            card.append(div1, div2, button)
             container.appendChild(card)
 
         }
     }
-    function displayUsers(arr){
-        console.log(arr)
-        container.innerHTML=""
-        for(let i=0;i<arr.length;i++) {
-            let card=document.createElement("div")
-            let div1=document.createElement("div")
-            let image=document.createElement("img")
-            let div2=document.createElement("div")
-            let name=document.createElement("h1")
-            let phone=document.createElement("p")
-            let gender=document.createElement("p")
-            let button=document.createElement("button")
-            if(arr[i].gender=="male")
-            image.src="images/icon_men.png";
+    function displayUsers(arr) {
+        container.innerHTML = ""
+        container.className = '';
+        container.setAttribute("class", "displayUser")
+        for (let i = 0; i < arr.length; i++) {
+            let card = document.createElement("div")
+            let div1 = document.createElement("div")
+            let image = document.createElement("img")
+            let div2 = document.createElement("div")
+            let name = document.createElement("h1")
+            let phone = document.createElement("p")
+            let gender = document.createElement("p")
+            let button = document.createElement("button")
+            if (arr[i].gender == "male")
+                image.src = "images/icon_men.png";
             else
-            image.src="images/icon_women.png"
-            name.innerText=arr[i].name;
-            phone.innerHTML=`<b>Phone :- </b>${arr[i].phone}`
-            gender.innerHTML=`<b>Gender :- </b>${arr[i].gender}`;
-            button.innerText="Remove"
-            button.setAttribute("class","remove")
-            button.addEventListener("click",()=>{
+                image.src = "images/icon_women.png"
+            name.innerText = arr[i].name;
+            phone.innerHTML = `<b>Phone :- </b>${arr[i].phone}`
+            gender.innerHTML = `<b>Gender :- </b>${arr[i].gender}`;
+            button.innerText = "Remove"
+            button.setAttribute("class", "remove")
+            button.addEventListener("click", () => {
                 console.log(arr[i])
-                async function DeleteUser(){
+                async function DeleteUser() {
                     try {
-                        let res=await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/users/${arr[i].id}`,{
-                            method:'DELETE',
-                            headers:{
-                                'Content-Type':'application/json'
+                        let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/users/${arr[i].id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json'
                             },
                         })
                     } catch (error) {
@@ -197,16 +258,65 @@
                     }
                 }
                 DeleteUser();
-                arr.splice(i,1)
+                arr.splice(i, 1)
                 displayUsers(arr)
             })
             div1.append(image)
-            div2.append(name,phone,gender,button)
-            card.append(div1,div2)
+            div2.append(name, phone, gender, button)
+            card.append(div1, div2)
             container.append(card)
         }
-        
     }
-
+    function displayEmployees(arr) {
+        container.innerHTML = ""
+        container.className = '';
+        container.setAttribute("class", "displayUser")
+        for (let i = 0; i < arr.length; i++) {
+            let card = document.createElement("div");
+            let div1 = document.createElement("div");
+            let image = document.createElement("img");
+            let div2 = document.createElement("div");
+            let name = document.createElement("h1");
+            let department = document.createElement("p");
+            let phone = document.createElement("p");
+            let gender = document.createElement("p");
+            let salary = document.createElement("p");
+            let button = document.createElement("button");
+            if (arr[i].gender == "male")
+                image.src = "images/icon_men.png";
+            else
+                image.src = "images/icon_women.png"
+            name.innerText = arr[i].name;
+            phone.innerHTML = `<b>Phone :- </b>${arr[i].phone}`
+            department.innerHTML = `<b>Department :- </b>${arr[i].department}`
+            gender.innerHTML = `<b>Gender :- </b>${arr[i].gender}`;
+            salary.innerHTML = `<b>Salary :- </b>${arr[i].salary}`;
+            button.innerText = "Remove"
+            button.setAttribute("class", "remove")
+            button.addEventListener("click", () => {
+                console.log(arr[i])
+                async function DeleteUser() {
+                    try {
+                        let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/employees/${arr[i].id}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                        })
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }
+                DeleteUser();
+                arr.splice(i, 1)
+                displayUsers(arr)
+            })
+            div1.append(image)
+            div2.append(name, department, phone, gender, salary, button)
+            card.append(div1, div2)
+            container.append(card)
+        }
+    }
 </script>
+
 </html>
