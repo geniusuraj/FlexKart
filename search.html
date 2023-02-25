@@ -11,16 +11,17 @@
       rel="stylesheet" />
     <title>FlexKart</title>
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/search.css">
   </head>
   <body>
 
     <!-- Starting of NAV -->
     <div class="nav-parent">
       <nav>
-        <img class="brand-logo" src="./assets/FlexKart.svg" />
+        <img class="brand-logo" src="./assets/FlexKart.svg" onclick="window.location.href='index.html'"/>
         <div class="search-div">
-          <input type="text" placeholder="What can we help you find?" />
-          <button><img src="./assets/search.svg" alt="" /></button>
+          <input type="text" placeholder="What can we help you find?" id="searchInput"/>
+          <button><img src="./assets/search.svg" alt="" id="searchBtn" onclick="window.location.href='search.html'"/></button>
           <div class="divider"></div>
         </div>
         <div class="header-buttons">
@@ -64,7 +65,7 @@
             </div>
           </div>
           <div>
-            <img src="./assets/logo.svg" />
+            <img src="./assets/bag.svg" />
             <div>Bag</div>
           </div>
         </div>
@@ -1068,11 +1069,46 @@
     <!-- END of FOOTER -->
   </body>
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/search.js"></script>
+  <script>
+const searchResult = document.querySelector('.searchResult');
+const searchData = localStorage.getItem('searchData');
+fetch('https://63f63abd59c944921f6ff45a.mockapi.io/products')
+  .then(response => response.json())
+  .then(products => {
+    const filteredProducts = products.filter(product => {
+      const check = product.check.toLowerCase();
+      return check.includes(searchData.toLowerCase());
+    });
+    if (filteredProducts.length > 0) {
+      filteredProducts.forEach(product => {
+        const result = document.createElement('div');
+        result.classList.add('search-result');
+        result.innerHTML = `
+        <img src="${product.src}" alt="${product.title}">
+        <h3>${product.title}</h3>
+        <p>${product.discription}</p>
+        <span>₹${product.price}</span>
+        <p>${product.brand}</p>
+          <button class="buy-now" data-id="${product.id}">Buy now</button>
+        `;
+        const buyNowBtn = result.querySelector('.buy-now');
+        buyNowBtn.addEventListener('click', function() {
+          const selectedProduct = {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            quantity: 1
+          };
+          localStorage.setItem('item', JSON.stringify(selectedProduct));
+        });
+        searchResult.appendChild(result);
+      });
+    } else {
+      searchResult.innerHTML = '<p>No results found</p>';
+    }
+  })
+  .catch(error => console.error(error));
 
-  <div class="search-div">
-    <input type="text" placeholder="What can we help you find?" id="searchInp"/>
-    <button><img src="./assets/search.svg" alt="" id="searchBtn"/></button>
-  </div>
-  
-  <div id="searchResults"></div>
+  </script>
 </html>
