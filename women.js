@@ -124,4 +124,7 @@ low.addEventListener("click",()=>{
 
 
 
-
+let bag = document.getElementById("bag");
+bag.addEventListener("click",()=>{
+  window.location.href = "./card.html"
+})
