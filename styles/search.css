@@ -10,14 +10,66 @@
 }
 .search-result{
     border: 1px grey;
-    width: 100%;
+    width: 90%;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    text-align: center;
+    /* text-align: center; */
     /* text-align: justify; */
     padding-top: 20px;
+    padding:20px;
+    margin: auto;
     /* margin-top: 20px; */
     background:rgb(255, 255, 255);
 }
 .search-result>img{
     height: 250px;
+}
+
+
+/* appended data */
+
+
+#price{
+    color: red;
+ }
+ #discription{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+ -webkit-line-clamp: 3; /* number of lines to show */
+   line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    color:rgb(136, 134, 134);
+}
+
+#title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+ -webkit-line-clamp: 1; /* number of lines to show */
+   line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    color:rgb(136, 134, 134);
+}
+
+#price:hover,#discription:hover{
+    cursor: pointer;
+   text-decoration:underline;
+}
+#button{
+    background-color:rgb(166, 242, 166);
+    border:0px;
+    border-radius:8px;
+    height:40px;
+    display:block;
+    margin: auto;
+}
+#button:hover{
+    cursor: pointer;
+    background-color:rgb(199, 246, 199);
+}
+#img{
+    display: block;
+    margin: auto;
+    width:90%;
+    height:300px;
 }

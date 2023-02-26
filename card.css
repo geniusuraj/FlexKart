@@ -1,7 +1,8 @@
 #cont{
-    width: 100%;
+    width: 98%;
     height: 500px;
     display: flex;
+    margin: auto;
     justify-content: space-between;
 }
 
@@ -10,11 +11,15 @@
     height: 500px;
     /* border: 1px solid rgb(209, 19, 19); */
 }
-
+#order-container{
+    
+}
 #price{
     width: 37%;
     height: 300px;
-    margin-top: 13px;
+    margin-top:20px;
+  
+   /* margin-left:40%; */
     box-shadow: rgba(2, 85, 168, 0.2) 0px 8px 24px;
 }
 #price>div:nth-child(1){
