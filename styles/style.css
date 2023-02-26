@@ -463,3 +463,53 @@ div > div:has(.footer-nav) {
   text-align: center;
   color: gray;
 }
+/* Media query for small screens */
+@media only screen and (max-width: 767px) {
+  nav .header-buttons {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+  }
+  nav .search-div {
+    width: 60%;
+  }
+  nav .header-buttons > div {
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  nav .header-buttons .divider {
+    display: none;
+  }
+  nav #reward-dropdown,
+  nav #my-account-dropdown {
+    top: 44px;
+    width: auto;
+  }
+  nav #my-account-dropdown button {
+    margin-bottom: 0.5rem;
+  }
+  .shopping-category {
+    flex-direction: column;
+  }
+  .shopping-category ul {
+    margin-left: 0;
+    column-gap: 0;
+  }
+}
+
+/* Media query for medium screens */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  nav .header-buttons {
+    column-gap: 1rem;
+  }
+  nav .search-div {
+    width: 40%;
+  }
+  .shopping-category ul {
+    margin-left: 6%;
+    column-gap: 30px;
+  }
+}

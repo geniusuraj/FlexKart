@@ -1098,6 +1098,9 @@ fetch('https://63f63abd59c944921f6ff45a.mockapi.io/products')
         buyNowBtn.addEventListener('click', function() {
           const selectedProduct = {
             id: product.id,
+            src:product.src,
+            discription:product.discription,
+            brand:product.brand,
             title: product.title,
             price: product.price,
             quantity: 1
