@@ -1,0 +1,34 @@
+[
+    {
+        "name":"Gaurav Kanaujiya",
+        "image":"images/gaurav.jpg",
+        "linkdin":"https://www.linkedin.com/in/gaurav-kanaujiya",
+        "email":"gauravkanaujiya588@gmail.com",
+        "Profession":"Full stack web developer",
+        "github":"https://github.com/Gaurav-G-K"
+    },
+    {
+        "name":"Krunal Arun Kumar Gurao",
+        "image":"images/krunal.jpg",
+        "linkdin":"https://www.linkedin.com/in/krunal-gurao-%F0%9F%A4%98%F0%9F%8F%BB%F0%9F%A4%96-677a2323a",
+        "email":"krunalgurao1@gmail.com",
+        "Profession":"Full stack web developer",
+        "github":"https://github.com/KrunalGurao"
+    },
+    {
+        "name":"Suraj Kumar Sharma",
+        "image":"images/suraj.jpg",
+        "linkdin":"https://www.linkedin.com/in/geniusuraj",
+        "email":"krunalgurao1@gmail.com",
+        "Profession":"Full stack web developer",
+        "github":"https://github.com/geniusuraj"
+    },
+    {
+        "name":"Atul Gour",
+        "image":"https://avatars.githubusercontent.com/u/112754758?v=4",
+        "linkdin":"https://github.com/AtulGour17",
+        "email":"krunalgurao1@gmail.com",
+        "Profession":"Full stack web developer",
+        "github":"https://github.com/geniusuraj"
+    }
+]
