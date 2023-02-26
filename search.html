@@ -1070,6 +1070,7 @@
   </body>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/search.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script>
 const searchResult = document.querySelector('.searchResult');
 const searchData = localStorage.getItem('searchData');
@@ -1087,16 +1088,19 @@ fetch('https://63f63abd59c944921f6ff45a.mockapi.io/products')
         const result = document.createElement('div');
         result.classList.add('search-result');
         result.innerHTML = `
-        <img src="${product.src}" alt="${product.title}">
-        <h3>${product.title}</h3>
-        <p>${product.brand}</p>
-        <p>${product.discription}</p>
-        <span>₹${product.price}</span>
-        <button class="buy-now" data-id="${product.id}">Buy now</button>
+        <img src="${product.src}" alt="${product.title}" id="img">
+        <h4 id="title">${product.title}</h4>
+        <h4 id="brand">${product.brand}</h4>
+        <p id="discription">${product.discription}</p>
+        <h4 id="price">₹${product.price}</h4>
+        <button class="buy-now" data-id="${product.id}" id="button">Buy now</button>
         `;
         const buyNowBtn = result.querySelector('.buy-now');
         buyNowBtn.addEventListener('click', function() {
           const selectedProduct = {
+            brand:product.brand,
+            discription:product.discription,
+            src:product.src,
             id: product.id,
             src:product.src,
             discription:product.discription,
@@ -1105,8 +1109,25 @@ fetch('https://63f63abd59c944921f6ff45a.mockapi.io/products')
             price: product.price,
             quantity: 1
           };
+          // selectedProducts.push(selectedProduct);
+          // localStorage.setItem('buy', JSON.stringify(selectedProducts));
+          // swal("Successfully Added to Cart!", "See More!", "success")
+
+          let flag = false
+        for(let i=0 ; i<selectedProducts.length ; i++){
+            if(selectedProducts[i].id === selectedProduct.id){
+                flag = true;
+                break;
+            }
+        }
+        if(flag === true){
+            swal("Already in Cart!", "Add Something else!", "warning")
+        }else{
           selectedProducts.push(selectedProduct);
           localStorage.setItem('buy', JSON.stringify(selectedProducts));
+          swal("Successfully Added to Cart!", "See More!", "success")
+        }
+
         });
         searchResult.appendChild(result);
       });
