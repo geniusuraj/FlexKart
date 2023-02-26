@@ -23,3 +23,53 @@
 .search-result>img{
     height: 250px;
 }
+
+
+/* appended data */
+
+
+#price{
+    color: red;
+ }
+ #discription{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+ -webkit-line-clamp: 3; /* number of lines to show */
+   line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    color:rgb(136, 134, 134);
+}
+
+#title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+ -webkit-line-clamp: 1; /* number of lines to show */
+   line-clamp: 1; 
+    -webkit-box-orient: vertical;
+    color:rgb(136, 134, 134);
+}
+
+#price:hover,#discription:hover{
+    cursor: pointer;
+   text-decoration:underline;
+}
+#button{
+    background-color:rgb(166, 242, 166);
+    border:0px;
+    border-radius:8px;
+    height:40px;
+    display:block;
+    margin: auto;
+}
+#button:hover{
+    cursor: pointer;
+    background-color:rgb(199, 246, 199);
+}
+#img{
+    display: block;
+    margin: auto;
+    width:90%;
+    height:300px;
+}
