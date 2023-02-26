@@ -1071,44 +1071,6 @@
   <script src="./scripts/script.js"></script>
   <script src="./scripts/search.js"></script>
   <script>
-// const searchResult = document.querySelector('.searchResult');
-// const searchData = localStorage.getItem('searchData');
-// fetch('https://63f63abd59c944921f6ff45a.mockapi.io/products')
-//   .then(response => response.json())
-//   .then(products => {
-//     const filteredProducts = products.filter(product => {
-//       const check = product.check.toLowerCase();
-//       return check.includes(searchData.toLowerCase());
-//     });
-//     if (filteredProducts.length > 0) {
-//       filteredProducts.forEach(product => {
-//         const result = document.createElement('div');
-//         result.classList.add('search-result');
-//         result.innerHTML = `
-//         <img src="${product.src}" alt="${product.title}">
-//         <h3>${product.title}</h3>
-//         <p>${product.brand}</p>
-//         <p>${product.discription}</p>
-//         <span>₹${product.price}</span>
-//           <button class="buy-now" data-id="${product.id}">Buy now</button>
-//         `;
-//         const buyNowBtn = result.querySelector('.buy-now');
-//         buyNowBtn.addEventListener('click', function() {
-//           const selectedProduct = {
-//             id: product.id,
-//             title: product.title,
-//             price: product.price,
-//             quantity: 1
-//           };
-//           localStorage.setItem('item', JSON.stringify(selectedProduct));
-//         });
-//         searchResult.appendChild(result);
-//       });
-//     } else {
-//       searchResult.innerHTML = '<p>No results found</p>';
-//     }
-//   })
-//   .catch(error => console.error(error));
 const searchResult = document.querySelector('.searchResult');
 const searchData = localStorage.getItem('searchData');
 const selectedProducts = [];
