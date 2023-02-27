@@ -1647,10 +1647,15 @@ color: white;
 
 <script>
     document.querySelector("form").addEventListener("submit",myFunction)
-function myFunction(){
-    event.preventDefault();
+function myFunction(e){
+  e.preventDefault(e);
+  console.log("hello")
     var logArr = JSON.parse(localStorage.getItem("allUsers")) || []
 var userEmail=document.querySelector("#email").value;
+if(userEmail=="admin@flexkart.com")
+location="admin.html"
+else{
+  
 for(let i=0;i<logArr.length;i++){
     var email=logArr[i].email
     if(email==userEmail){
@@ -1660,4 +1665,6 @@ for(let i=0;i<logArr.length;i++){
 }
 alert("Your Account is NOT Register!!");
 }
+}
+
 </script>

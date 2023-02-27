@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
+    <link rel="stylesheet" href="./styles/style.css">
     <style>
         * {
             padding: 0;
@@ -118,6 +119,15 @@
             display: block;
             margin: auto;
         }
+        .displayOurTeam{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+        .displayOurTeam>div img{
+            width: 100%;
+        }
         .addData{
             font-size: 20px;
             padding: 7px 12px;
@@ -130,17 +140,72 @@
             color: white;
             border-radius: 10px;
         }
-        .addform{
+        /* .addform{
             z-index: 10;
             position: absolute;
             top: 50px;
             left: 40%;
 
-        }
+        } */
     </style>
 </head>
 
 <body>
+    <div class="nav-parent">
+      <nav>
+        <img class="brand-logo" src="./assets/FlexKart.svg" onclick="window.location.href='index.html'"/>
+        <div class="search-div">
+          <input type="text" placeholder="What can we help you find?" id="searchInput"/>
+          <button><img src="./assets/search.svg" alt="" id="searchBtn" onclick="window.location.href='search.html'"/></button>
+          <div class="divider"></div>
+        </div>
+        <div class="header-buttons">
+          <div id="reward-div">
+            <div>
+              <img src="./assets/reward.svg" />
+              <img id="rew-chevron" src="./assets/chevron-down.svg" />
+            </div>
+            <div>Flex Reward+</div>
+            <div id="reward-dropdown">
+              <a href="">Manage My Account</a>
+              <a href="">Pay My Bill</a>
+              <a href="">My Reward Card Benefits</a>
+              <a href="">Apply For a New Card</a>
+            </div>
+          </div>
+          <div>
+            <img src="./assets/coupon.svg" />
+            <div>Coupons</div>
+          </div>
+          <div id="my-account-div">
+            <div>
+              <img src="./assets/my-account.svg" />
+              <img id="acc-chevron" src="./assets/chevron-down.svg" />
+            </div>
+            <div>My Account</div>
+            <div class="divider"></div>
+            <div id="my-account-dropdown">
+              <button onclick="window.location.href='./login.html'">Sign In</button>
+              <button onclick="window.location.href='./register.html'">Create Account</button>
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find My Order</a
+              >
+              <a href=""><img src="./assets/check.svg" alt="" />Reward +</a>
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find a Wish List</a
+              >
+              <a href=""
+                ><img src="./assets/check.svg" alt="" />Find a Registry</a
+              >
+            </div>
+          </div>
+          <div>
+            <img src="./assets/bag.svg" onclick="window.location.href='card.html'"/>
+            <div>Bag</div>
+          </div>
+        </div>
+      </nav>
+    </div>
 
     <div id="container-nav">
         <div><span id="products">PRODUCT</span><span id="users">USERS</span><span id="employees">EMPLOYEES</span><span
@@ -153,10 +218,10 @@
 </body>
 <script>
     let container = document.querySelector("#container")
-    async function fetchData(data = "products", page = 1) {
+    async function fetchData(data = "products") {
         if (data == "products") {
             try {
-                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}?limit=10&&page=${page}`)
+                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}`)
                 res = await res.json();
                 displayProduct(res);
             }
@@ -166,7 +231,7 @@
         }
         else if (data == "users") {
             try {
-                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}?limit=10&&page=${page}`)
+                let res = await fetch(`https://63f63abd59c944921f6ff45a.mockapi.io/${data}`)
                 res = await res.json();
                 displayUsers(res)
             } catch (error) {
@@ -175,7 +240,7 @@
         }
         else if (data == "employees") {
             try {
-                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}?limit=15&&page=${page}`)
+                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}`)
                 res = await res.json();
                 displayEmployees(res)
             } catch (error) {
@@ -185,7 +250,7 @@
         }
         else if (data == "ourteam") {
             try {
-                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}?limit=15&&page=${page}`)
+                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}`)
                 res = await res.json();
                 displayOurTeam(res)
             }
@@ -207,14 +272,14 @@
         container.className = ''
         let addProduct=document.createElement("button")
         addProduct.innerText="Add Product"
-        addProduct.addEventListener("click",()=>{
-            let Form=document.createElement("div")
-            Form.setAttribute("class","addform")
-            Form.innerHTML=
-            <h1>ADD PRODUCTS</h1>
+        // addProduct.addEventListener("click",()=>{
+        //     let Form=document.createElement("div")
+        //     Form.setAttribute("class","addform")
+        //     Form.innerHTML=
+        //     <h1>ADD PRODUCTS</h1>
             
-            container.append(Form)
-        })
+        //     container.append(Form)
+        // })
         addProduct.setAttribute("class","addData")
         container.append(addProduct)
         
@@ -363,7 +428,7 @@
     function displayOurTeam(arr) {
         container.innerHTML = ""
         container.className = '';
-        container.setAttribute("class", "displayUser")
+        container.setAttribute("class", "displayOurTeam")
         for (let i = 0; i < arr.length; i++) {
             let card = document.createElement("div");
             let div1 = document.createElement("div");
@@ -377,9 +442,9 @@
             image.src = arr[i].image;
             name.innerText = arr[i].name;
             github.innerHTML = `<b>Github :- </b><a href="${arr[i].github}">${arr[i].github}</a>`
-            profession.innerHTML = `<b>Profession :- </b><a href="${arr[i].profession}">${arr[i].profession}</a>`
+            profession.innerHTML = `<b>Profession :- </b><a href="${arr[i].Profession}">${arr[i].Profession}</a>`
             linkdin.innerHTML = `<b>Linkdin :- </b><a href="${arr[i].linkdin}">${arr[i].linkdin}</a>`;
-            email.innerHTML = `<b>Salary :- </b><a href="${arr[i].email}">${arr[i].email}</a>`;
+            email.innerHTML = `<b>Gmail :- </b><a href="${arr[i].email}">${arr[i].email}</a>`;
             div1.append(image)
             div2.append(name, profession, github, linkdin, email)
             card.append(div1, div2)
