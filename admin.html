@@ -119,27 +119,8 @@
             display: block;
             margin: auto;
         }
-        .displayOurTeam{
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 20px;
-        }
-        .displayOurTeam>div img{
-            width: 100%;
-        }
-        .addData{
-            font-size: 20px;
-            padding: 7px 12px;
-            display: block;
-            position: absolute;
-            right: 20px;
-            top: -50px;
-            border: none;
-            background-color: green;
-            color: white;
-            border-radius: 10px;
-        }
+        
+        
         /* .addform{
             z-index: 10;
             position: absolute;
@@ -428,7 +409,7 @@
     function displayOurTeam(arr) {
         container.innerHTML = ""
         container.className = '';
-        container.setAttribute("class", "displayOurTeam")
+        container.setAttribute("class", "displayUser")
         for (let i = 0; i < arr.length; i++) {
             let card = document.createElement("div");
             let div1 = document.createElement("div");
