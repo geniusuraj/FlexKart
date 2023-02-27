@@ -5,9 +5,9 @@ Belk, Inc. is an American department store chain founded in 1888 by William Henr
 <br>
 
 ## **TechStack We Used To Build Our FlexKart:**
->HTML
->CSS
->JAVASCRIPT
+**>HTML**
+**>CSS**
+**>JAVASCRIPT**
 
 ![FlexKart](https://user-images.githubusercontent.com/89844657/221492922-cc139707-bf2d-4db4-ab61-7f8f48d9bb37.png)
 This is our one of the product page:MensPage
