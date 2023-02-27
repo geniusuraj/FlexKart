@@ -119,8 +119,43 @@
             display: block;
             margin: auto;
         }
+        .displayOurTeam{
+          display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin: 20px 50px 20px;
+            gap: 20px;
+        }
+        .displayOurTeam>div img{
+            width: 100%;
+        }
+        .displayOurTeam>div h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
         
-        
+        .displayOurTeam>div {
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 0px 4px rgb(165, 164, 164);
+        }
+        .displayOurTeam>div div:nth-child(2) {
+            padding: 20px;
+        }
+        .displayOurTeam>div div:nth-child(2) a {
+            color: blue;
+        }
+        .addData{
+            font-size: 20px;
+            padding: 7px 12px;
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: -50px;
+            border: none;
+            background-color: green;
+            color: white;
+            border-radius: 10px;
+        }
         /* .addform{
             z-index: 10;
             position: absolute;
@@ -409,7 +444,7 @@
     function displayOurTeam(arr) {
         container.innerHTML = ""
         container.className = '';
-        container.setAttribute("class", "displayUser")
+        container.setAttribute("class", "displayOurTeam")
         for (let i = 0; i < arr.length; i++) {
             let card = document.createElement("div");
             let div1 = document.createElement("div");
@@ -423,7 +458,7 @@
             image.src = arr[i].image;
             name.innerText = arr[i].name;
             github.innerHTML = `<b>Github :- </b><a href="${arr[i].github}">${arr[i].github}</a>`
-            profession.innerHTML = `<b>Profession :- </b><a href="${arr[i].Profession}">${arr[i].Profession}</a>`
+            profession.innerHTML = `<b>Profession :- </b>${arr[i].Profession}`
             linkdin.innerHTML = `<b>Linkdin :- </b><a href="${arr[i].linkdin}">${arr[i].linkdin}</a>`;
             email.innerHTML = `<b>Gmail :- </b><a href="${arr[i].email}">${arr[i].email}</a>`;
             div1.append(image)
