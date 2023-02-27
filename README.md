@@ -3,7 +3,15 @@ Belk.com-Clone
 <br>
 Belk, Inc. is an American department store chain founded in 1888 by William Henry Belk in Monroe, North Carolina, with nearly 300 locations in 16 states. Belk stores and Belk.com offer apparel, shoes, accessories, cosmetics, home furnishings, and wedding registry. 
 <br>
-
+## This is a group project incluing of four poeple:
+[Suraj Kumar Sharma (Team Lead)](https://github.com/geniusuraj/)
+<br>
+[Krunal A. Gurao (Handle's Login/Singup and Checkout Part)](https://github.com/KrunalGurao)
+<br>
+[Atul Gour (Product Page and Cart Page)](https://github.com/AtulGour17)
+<br>
+[Gaurav Kanaujiya (Handle's The Backend Part)](https://github.com/Gaurav-G-K)
+<br>
 ## **TechStack We Used To Build Our FlexKart:**
 + HTML
 + CSS
