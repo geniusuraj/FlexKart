@@ -250,7 +250,7 @@
         }
         else if (data == "ourteam") {
             try {
-                let res = await fetch(`https://63f9922f897af748dcc04877.mockapi.io/${data}`)
+                let res = await fetch(`admin.json`)
                 res = await res.json();
                 displayOurTeam(res)
             }
